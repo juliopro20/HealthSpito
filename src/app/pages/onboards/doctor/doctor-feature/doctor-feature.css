@@ -1,0 +1,107 @@
+.feature-component {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+  width: 90%;
+  margin-top: 150px;
+}
+
+.main-content p {
+  font-size: 2.3rem;
+  line-height: 1.2;
+}
+
+.main-content img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.main-content button {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  background-color: #0C86F6;
+  cursor: pointer;
+}
+
+/* feutures section codes */
+
+.feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.feature-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 50px;
+  width: 95%;
+}
+
+.card {
+  margin-bottom: 50px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  background-color: #F0EDFF;
+  padding: 50px 0;
+}
+
+.bottom p {
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.bottom button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #0C86F6;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 800px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  .feature-content {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .main-content p {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .feature-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .main-content p {
+    font-size: 1.5rem;
+  }
+}

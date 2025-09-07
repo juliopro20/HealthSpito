@@ -1,0 +1,34 @@
+<section class="feature-component">
+  <div class="main-content">
+    <div class="text">
+      <p>
+        Join a community of like-minded health professionals and harness the
+        power of AI to enhance your practice. Our platform offers cutting-edge
+        tools and resources to assist in diagnosis, treatment planning, and
+        research. By creating an account, you're taking a step towards improving
+        patient care and advancing the field of medicine
+      </p>
+      <p>Here are some features you can experiences when using HealthSpito.</p>
+      <button (click)="onBoardDoctor()">Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-content">
+    <div class="card" *ngFor="let item of featuresArray">
+      <img src="{{ item.icon }}" alt="" />
+      <h2>{{ item.text }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div>
+    <p>Create an account in other to benefit from all these features</p>
+    <button (click)="onBoardDoctor()">Create An Account</button>
+  </div>
+</section>
+
+<app-footer></app-footer>

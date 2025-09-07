@@ -1,0 +1,319 @@
+<!-- here is the hero section of the application -->
+
+<section class="hero">
+  <div class="hero-content">
+    <p>Welcome to</p>
+    <h1>HealthSpito</h1>
+    <h2>Prioritizes your Health, <br />Empower your life.</h2>
+    <a href="#become-part-of-HealthSpito"><button >Get Started</button></a>
+  </div>
+</section>
+
+<!-- end of the hero section -->
+
+<section class="section1">
+  <div class="section1-content">
+    <img src="vector.png" alt="" />
+    <div class="text">
+      <h1>What HealthSpito is all About</h1>
+      <div
+        class="box-line"
+        style="
+          width: 50%;
+          height: 7px;
+          border-radius: 30px;
+          background-color: #85c9b3;
+          margin-bottom: 20px;
+        "
+      ></div>
+      <p>
+        Effective treatment depends on getting the right diagnosis. HealthSpito
+        is an AI integrated model application with experts in medical fields
+        that offers a user friendly interface and powerful capabilities that
+        streamline workflows and automate tasks, saving your valuable time.
+      </p>
+
+      <p style="margin-top: 20px">
+        To learn more, <button type="button">Click</button>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- this provides a  scroll pattern for the get started button -->
+<div id="become-part-of-HealthSpito" ></div>
+<div class="headings">
+  <h1>Become Part of HealthSpito</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 30px;
+      background-color: #85c9b3;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+
+<!-- become part of healthspito section html -->
+
+<section class="section2" >
+  <div class="section2-content">
+    <div class="text">
+      <p>
+        Create an account and become part of HealthSpito by registering as the
+        following.
+      </p>
+      <h2>Personnel</h2>
+      <div
+        class="box-line"
+        style="
+          width: 30%;
+          height: 7px;
+          border-radius: 30px;
+          background-color: #3472e4;
+          margin: 10px 0;
+        "
+      ></div>
+      <button type="button" (click)="onBoardPatient()">Patient</button>
+      <button type="button" (click)="onBoardDoctor()">Doctors</button>
+      <button type="button">Researcher</button> <br />
+      <button type="button">Nurse</button>
+      <button type="button">Midwife</button>
+      <button type="button">Lab Technician</button> <br />
+
+      <h2>Personnel</h2>
+      <div
+        class="box-line"
+        style="
+          width: 30%;
+          height: 7px;
+          border-radius: 30px;
+          background-color: #3472e4;
+          margin: 10px 0;
+        "
+      ></div>
+      <button type="button">Pharmacy</button>
+      <button type="button">Hospital</button>
+      <button type="button">Clinic</button> <br />
+      <button type="button">Laboratory</button>
+      <button type="button">Health Care Centers</button>
+    </div>
+    <div class="video-wrapper">
+      <video controls>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- end of section -->
+
+<!-- the carousel section  -->
+
+<div class="headings">
+  <h1>How we help</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 20px;
+      background-color: #3472e4;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+<section class="carousel-section"> 
+  <div class="carousel-container">
+
+    <!-- Navigation Buttons -->
+    <button class="nav-btn prev" (click)="prev()" aria-label="Previous card">
+      &#10094;
+    </button>
+    <button class="nav-btn next" (click)="next()" aria-label="Next card">
+      &#10095;
+    </button>
+
+    <!-- Carousel Viewport -->
+    <div class="carousel-viewport">
+      <div class="carousel-track" #track>
+        <div
+          class="carousel-card"
+          *ngFor="let card of cards; let i = index"
+          [style.transform]="'scale(' + getCardScale(i) + ')'"
+          [style.zIndex]="getCardZIndex(i)"
+        >
+          <div class="icon-container">
+            <mat-icon>{{card.icon}}</mat-icon>
+          </div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.description }}</p>
+          <button>{{ card.buttonText }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end of section -->
+
+<!-- the Why Use HealthSpito section  -->
+
+<div class="headings">
+  <h1>Why Use HealthSpito?</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 20px;
+      background-color: #85c9b3;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+
+<section class="section4">
+  <div class="section4-content">
+    <p>Here are some facilities that makes us different and Unique.</p>
+    <div class="cards">
+      <div *ngFor="let item of whyUseCard">
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.text }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="background-div">
+    <!--the background divs codes  -->
+  </div>
+</section>
+<!-- end of section -->
+
+<!-- FAQ section -->
+<div class="headings">
+  <h1>Frequently Asked Questions (FAQ)</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 20px;
+      background-color: #3472e4;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+
+<section class="section5">
+  <div class="section5-content">
+    <img src="faq.png" alt="" />
+    <div class="accordion">
+      <cdk-accordion class="example-accordion">
+        @for (item of faqArray; track item; let index = $index) {
+        <cdk-accordion-item
+          #accordionItem="cdkAccordionItem"
+          class="example-accordion-item"
+        >
+          <button
+            class="example-accordion-item-header"
+            (click)="accordionItem.toggle()"
+            tabindex="0"
+            [attr.id]="'accordion-header-' + index"
+            [attr.aria-expanded]="accordionItem.expanded"
+            [attr.aria-controls]="'accordion-body-' + index"
+          >
+            {{ item.question }}
+            <span class="example-accordion-item-description">
+              <mat-icon> {{ accordionItem.expanded ? "keyboard_arrow_up" : "keyboard_arrow_down" }}</mat-icon>
+            </span>
+          </button>
+          @if(accordionItem.expanded) {
+          <div
+            class="example-accordion-item-body"
+            role="region"
+            [style.display]="accordionItem.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-' + index"
+            [attr.aria-labelledby]="'accordion-header-' + index"
+          >
+            {{item.answer}}
+          </div>
+          }
+        </cdk-accordion-item>
+        }
+        <p>If question not answer, click <span >Learn More</span></p>
+      </cdk-accordion>
+    </div>
+  </div>
+</section>
+<!-- end of section -->
+
+
+<!--  hospital section  -->
+
+<div class="headings">
+  <h1>Organisations already HealthSpito</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 30px;
+      background-color: #3472e4;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+
+<section class="section6">
+  <div class="section6-content">
+    <div class="cards">
+      <div *ngFor="let item of orgArray">
+        <img src="{{item.image}}" alt="">
+        <div class="text">
+          <h2>{{item.title}}</h2>
+        <p>{{item.text}}<a href="{{item.url}}">...click below to learn more</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--  end of the hospital section  -->
+
+<!-- contact section -->
+<div class="headings">
+  <h1>Contact and Supports</h1>
+  <div
+    class="box-line"
+    style="
+      width: 30%;
+      height: 7px;
+      border-radius: 20px;
+      background-color: #3472e4;
+      margin: 25px 0;
+    "
+  ></div>
+</div>
+
+<section class="section7">
+  <div class="section7-content">
+    <div class="info">
+      <div *ngFor="let item of contactArray">
+        <mat-icon>{{item.icon}}</mat-icon>
+        <h2>{{item.title}}</h2>
+        <p>{{item.info}}</p>
+      </div>
+    </div>
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31834.520934582033!2d9.27343140621481!3d4.158313996306456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10613259651819a3%3A0x754210aa92e62bff!2sBuea!5e0!3m2!1sen!2scm!4v1754600797347!5m2!1sen!2scm"  height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!--end contact section -->
+
+<!-- the footer components -->
+
+<app-footer></app-footer>

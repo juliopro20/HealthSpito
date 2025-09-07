@@ -1,0 +1,45 @@
+<section class="login">
+  <form action="">
+    <div class="container1">
+      <h1>Welcome Back</h1>
+      <p >Please enter the following</p>
+
+      <fieldset>
+        <div>
+          <mat-icon>local_hospital</mat-icon>
+          <input type="Name" placeholder="Institute Name" />
+        </div>
+        <div>
+          <mat-icon>email</mat-icon>
+          <input type="email" placeholder="Email" />
+        </div>
+        <div>
+          <mat-icon>lock</mat-icon>
+          <input #pwd type="password" placeholder="password" id="pwd" />
+        </div>
+      </fieldset>
+
+      <div class="container-sub">
+        <div class="check-password">
+          <input
+            #cb
+            type="checkbox"
+            (change)="pwd.type = cb.checked ? 'text' : 'password'"
+          />
+          <p>Show Password</p>
+        </div>
+        <span><a href="">Forgot Password?</a></span>
+      </div>
+
+      <button type="submit">login</button>
+      <p>Not yet having an account?, <a >SignIn</a></p>
+    </div>
+
+    <div class="text">
+        <h1>HealthSpito</h1>
+        <p>Prioritizes your Health, <br>Empower your life.</p>
+    </div>
+  </form>
+</section>
+
+<app-footer></app-footer>
