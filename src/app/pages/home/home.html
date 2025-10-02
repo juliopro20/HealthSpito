@@ -1,8 +1,8 @@
 <!-- here is the hero section of the application -->
 
-<section class="hero">
+<section class="hero fade-in-up">
   <div class="hero-content">
-    <p>Welcome to</p>
+    <p class="bouncing-text"><span>W</span><span>e</span><span>l</span><span>c</span><span>o</span><span>m</span><span>e </span><span>T</span><span>o</span></p>
     <h1>HealthSpito</h1>
     <h2>Prioritizes your Health, <br />Empower your life.</h2>
     <a href="#become-part-of-HealthSpito"><button >Get Started</button></a>
@@ -78,12 +78,12 @@
       ></div>
       <button type="button" (click)="onBoardPatient()">Patient</button>
       <button type="button" (click)="onBoardDoctor()">Doctors</button>
-      <button type="button">Researcher</button> <br />
-      <button type="button">Nurse</button>
-      <button type="button">Midwife</button>
-      <button type="button">Lab Technician</button> <br />
+      <button type="button" (click)="onBoardResearcher()">Researcher</button> <br />
+      <button type="button" (click)="onBoardNurse()">Nurse</button>
+      <button type="button" (click)="onBoardMidWife()">Midwife</button>
+      <button type="button" (click)="onBoardLabTechnician()">Lab Technician</button> <br />
 
-      <h2>Personnel</h2>
+      <h2>Health Institutes</h2>
       <div
         class="box-line"
         style="
@@ -94,11 +94,11 @@
           margin: 10px 0;
         "
       ></div>
-      <button type="button">Pharmacy</button>
-      <button type="button">Hospital</button>
-      <button type="button">Clinic</button> <br />
-      <button type="button">Laboratory</button>
-      <button type="button">Health Care Centers</button>
+      <button type="button" (click)="onBoardPharmacy()">Pharmacy</button>
+      <button type="button" (click)="onBoardHospital()">Hospital</button>
+      <button type="button" (click)="onBoardClinic()">Clinic</button> <br />
+      <button type="button" (click)="onBoardLaboratory()">Laboratory</button>
+      <button type="button" (click)="onBoardHealtCare()">Health Care Centers</button>
     </div>
     <div class="video-wrapper">
       <video controls>

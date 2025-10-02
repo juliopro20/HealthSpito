@@ -240,4 +240,49 @@ export class Home implements OnInit {
       this.document.defaultView?.scrollTo(0, 0); 
     });
   }
+  onBoardResearcher() {
+    this.router.navigate(['/researcher-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardNurse() {
+    this.router.navigate(['/nurse-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardMidWife() {
+    this.router.navigate(['/midwife-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardLabTechnician() {
+    this.router.navigate(['/lab-technician-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardPharmacy() {
+    this.router.navigate(['/pharmacy-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardHospital() {
+    this.router.navigate(['/hospital-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardClinic() {
+    this.router.navigate(['/clinic-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardLaboratory() {
+    this.router.navigate(['/laboratory-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
+  onBoardHealtCare() {
+    this.router.navigate(['/health-center-feature']).then(() => {
+      this.document.defaultView?.scrollTo(0, 0); 
+    });
+  }
 }

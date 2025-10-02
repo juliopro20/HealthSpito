@@ -1,5 +1,5 @@
 <header>
-  <img src="logo.png" alt="" routerLink="/"/>
+  <img src="logo.png" alt="" routerLink="/" />
 
   <nav class="nav-large-device">
     <ul>
@@ -8,8 +8,10 @@
         <li><a href="">Services</a></li>
         <li>
           <div class="dropdown">
-            <span class="dropbtn">More<mat-icon>keyboard_arrow_down</mat-icon></span>
-            <div class="dropdown-content"> 
+            <span class="dropbtn"
+              >More<mat-icon>keyboard_arrow_down</mat-icon></span
+            >
+            <div class="dropdown-content">
               <a href="#">FAQ</a>
               <a href="#">Blog</a>
               <a href="#">About</a>
@@ -22,16 +24,16 @@
       </ng-container>
 
       <ng-container *ngIf="showOnboardingNav">
-        <li><a >Feature</a></li>
-        <li><a >Pricing</a></li>
+        <li><a>Feature</a></li>
+        <li><a>Pricing</a></li>
       </ng-container>
 
       <div class="dropdown">
-          <button class="dropbtn">Login</button>
-          <div class="dropdown-content"> 
-            <a routerLink="/personel-login">Personel</a>
-            <a routerLink="/institute-login">Health Institute</a>
-          </div>
+        <button class="dropbtn">Login</button>
+        <div class="dropdown-content">
+          <a routerLink="/personel-login">Personel</a>
+          <a routerLink="/institute-login">Health Institute</a>
+        </div>
       </div>
     </ul>
   </nav>
@@ -41,10 +43,8 @@
       <li>
         <div class="dropdown">
           <span class="dropbtn"><mat-icon>menu</mat-icon></span>
-        <div class="dropdown-content">
-
-        </div>
-          <div class="dropdown-content"> 
+          <div class="dropdown-content"></div>
+          <div class="dropdown-content">
             <ng-container *ngIf="!showOnboardingNav">
               <a href="">Home</a>
               <a href="">Services</a>
@@ -54,6 +54,15 @@
               <a href="#">Contact</a>
               <a href="#">Hospitals</a>
               <a href="#">Pharmacies</a>
+              <li>
+                <div class="dropdown">
+                <button class="dropbtn">Login</button>
+                <div class="dropdown-content">
+                  <a routerLink="/personel-login">Personel</a>
+                  <a routerLink="/institute-login">Health Institute</a>
+                </div>
+              </div>
+              </li>
             </ng-container>
 
             <ng-container *ngIf="showOnboardingNav">

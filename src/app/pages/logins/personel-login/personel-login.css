@@ -101,3 +101,19 @@ form .text p{
     line-height: 1;
     text-shadow: 0px 2px 10px black;
 }
+
+@media screen and (max-width: 800px) {
+  .login form {
+    width: 70%;
+    grid-template-columns: 1fr;
+  }
+  .text {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .login form {
+    width: 90%;
+  }
+}

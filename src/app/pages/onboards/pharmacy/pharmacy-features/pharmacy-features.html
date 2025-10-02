@@ -1,0 +1,35 @@
+<section class="feature-component">
+  <div class="main-content fade-in-up">
+    <div class="text">
+      <p>
+        Join a community of proactive pharmacies and harness the power of AI to
+        enhance medication safety and patient support. Our platform offers
+        advanced tools and resources to streamline prescription processing,
+        detect potential drug interactions, support medication therapy
+        management, and improve patient counseling. By creating an account,
+        you're taking a vital step toward optimizing therapeutic outcomes and
+        expanding the impact of pharmacy care in the health ecosystem.
+      </p>
+      <button (click)="onBoardPharmacy()">Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-content">
+    <div class="card" *ngFor="let item of featuresArray">
+      <img src="{{ item.icon }}" alt="" />
+      <h2>{{ item.text }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div>
+    <p>Create an account in other to benefit from all these features</p>
+    <button (click)="onBoardPharmacy()">Create An Account</button>
+  </div>
+</section>
+
+<app-footer></app-footer>
