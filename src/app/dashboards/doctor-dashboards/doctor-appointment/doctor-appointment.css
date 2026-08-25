@@ -1,0 +1,108 @@
+@import '../dashboard-shared.css';
+
+.doctor-appointments-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: 6px;
+  border-radius: 20px;
+  background: #e0553f;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.appt-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.appt-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.appt-date {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: #eaf1ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.appt-date .num {
+  font-size: 19px;
+  font-weight: 800;
+  color: #2f5fd0;
+  line-height: 1;
+}
+.appt-date .mon {
+  font-size: 10.5px;
+  color: #2f5fd0;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.appt-doc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  min-width: 180px;
+}
+.appt-doc img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.appt-doc .ad-name {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.appt-doc .ad-role {
+  font-size: 11.5px;
+  color: #8a90a6;
+}
+.appt-body {
+  flex: 1;
+  min-width: 160px;
+}
+.appt-body .a-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.appt-body .a-sub {
+  font-size: 12px;
+  color: #8a90a6;
+}
+.appt-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btn-primary.sm,
+.btn-secondary.sm {
+  padding: 9px 16px;
+  font-size: 12px;
+}

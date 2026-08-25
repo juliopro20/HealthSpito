@@ -1,0 +1,102 @@
+@import '../dashboard-shared.css';
+
+.doctor-pharmacies-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.pharmacy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pharmacy-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pharmacy-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.pharmacy-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: #eaf1ff;
+  color: #2f5fd0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pharmacy-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.pharmacy-name {
+  font-weight: 700;
+  font-size: 14.5px;
+}
+.pharmacy-address {
+  font-size: 12px;
+  color: #5b6072;
+}
+.pharmacy-hours {
+  font-size: 11.5px;
+  color: #8a90a6;
+}
+.pharmacy-stock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.stock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.stock-dot.in {
+  background: #1fa971;
+}
+.stock-dot.limited {
+  background: #e08c1a;
+}
+.stock-dot.out {
+  background: #e0553f;
+}
+.full-w {
+  width: 100%;
+  justify-content: center;
+}
+
+.send-rx-card {
+  margin-top: 6px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+.rx-sub {
+  font-size: 12px;
+  color: #8a90a6;
+  margin-top: 2px;
+}

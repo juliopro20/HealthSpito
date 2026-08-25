@@ -1,0 +1,146 @@
+@import '../dashboard-shared.css';
+
+.patient-records-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.records-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.patient-file-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.patient-file-card:hover {
+  transform: translateY(-2px);
+}
+.patient-file-card.selected {
+  border-color: #3f7ff0;
+}
+.patient-file-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+}
+.pf-name {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.pf-sub {
+  font-size: 11px;
+  color: #8a90a6;
+  margin-bottom: 6px;
+}
+.pf-condition {
+  font-size: 11.5px;
+  color: #3f7ff0;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.pf-count {
+  font-size: 10.5px;
+  color: #8a90a6;
+}
+
+.record-panel {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 24px 26px;
+}
+.record-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.detail-patient {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.detail-patient img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dp-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+.dp-sub {
+  font-size: 12.5px;
+  color: #8a90a6;
+  margin-top: 2px;
+}
+
+.cat-row {
+  margin-bottom: 18px;
+}
+
+.doc-table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.doc-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #f7f9fd;
+  border-radius: 14px;
+  padding: 12px 16px;
+}
+.doc-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffe9e6;
+  color: #e0553f;
+  flex-shrink: 0;
+}
+.doc-icon.img {
+  background: #e7f7ec;
+  color: #22a35c;
+}
+.doc-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.doc-info {
+  flex: 1;
+  min-width: 0;
+}
+.doc-name {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.doc-sub {
+  font-size: 11.5px;
+  color: #8a90a6;
+}
+
+@media (max-width: 640px) {
+  .record-panel {
+    padding: 18px;
+  }
+}

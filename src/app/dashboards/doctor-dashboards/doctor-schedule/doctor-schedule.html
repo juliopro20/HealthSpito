@@ -1,1 +1,144 @@
-<p>doctor-schedule works!</p>
+<main class="doctor-schedule-page">
+  <div class="app">
+    <app-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search schedule..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Schedule</h1>
+        <p>Manage your weekly availability and block time off</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="week-nav">
+          <div class="icon-action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M15 6l-6 6 6 6" /></svg>
+          </div>
+          <span class="week-label">{{ weekLabel() }}</span>
+          <div class="icon-action-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M9 6l6 6-6 6" /></svg>
+          </div>
+        </div>
+        <button class="new-btn" (click)="toggleTimeOffForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12h14" /></svg>
+          Block time off
+        </button>
+      </div>
+
+      @if (showTimeOffForm()) {
+        <div class="card time-off-card">
+          @if (!timeOffSubmitted()) {
+            <div class="rx-form-head">
+              <h3>Block time off</h3>
+              <div class="form-close" (click)="toggleTimeOffForm()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12" /></svg>
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="to-date">Date</label>
+                <input type="date" id="to-date" name="date" [(ngModel)]="timeOffForm.date" />
+              </div>
+              <div class="form-group"></div>
+              <div class="form-group">
+                <label for="to-start">Start time</label>
+                <input type="time" id="to-start" name="startTime" [(ngModel)]="timeOffForm.startTime" />
+              </div>
+              <div class="form-group">
+                <label for="to-end">End time</label>
+                <input type="time" id="to-end" name="endTime" [(ngModel)]="timeOffForm.endTime" />
+              </div>
+              <div class="form-group full">
+                <label for="to-reason">Reason <span class="hint">(optional)</span></label>
+                <input type="text" id="to-reason" name="reason" [(ngModel)]="timeOffForm.reason" placeholder="e.g. Conference, personal leave" />
+              </div>
+            </div>
+            <div class="form-footer">
+              <div class="form-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+                Blocked slots won't be bookable by patients
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" (click)="toggleTimeOffForm()">Cancel</button>
+                <button type="button" class="btn-primary" (click)="submitTimeOff()">Block slots</button>
+              </div>
+            </div>
+          } @else {
+            <div class="success-block sm">
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+              </div>
+              <div class="success-title">Time off blocked</div>
+              <div class="success-sub">Patients won't be able to book that window.</div>
+            </div>
+          }
+        </div>
+      }
+
+      <div class="schedule-grid-wrap card">
+        <div class="schedule-grid">
+          <div class="sg-corner"></div>
+          @for (day of days(); track day.label) {
+            <div class="sg-day-head">
+              <div class="sg-day-name">{{ day.label }}</div>
+              <div class="sg-day-num">{{ day.date }}</div>
+            </div>
+          }
+
+          @for (hour of days()[0].slots; track hour.time; let i = $index) {
+            <div class="sg-time-label">{{ hour.time }}</div>
+            @for (day of days(); track day.label) {
+              <div
+                class="sg-cell"
+                [class.available]="day.slots[i].status === 'available'"
+                [class.booked]="day.slots[i].status === 'booked'"
+                [class.blocked]="day.slots[i].status === 'blocked'"
+                (click)="toggleSlot(day, day.slots[i])"
+              >
+                @if (day.slots[i].status === 'booked') {
+                  <span>Booked</span>
+                }
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </main>
+
+    <aside class="card remind-card" style="min-height: auto">
+      <div class="remind-head">
+        <h3>Legend</h3>
+      </div>
+      <div class="legend-list">
+        <div class="legend-item"><span class="legend-dot available"></span>Available</div>
+        <div class="legend-item"><span class="legend-dot booked"></span>Booked</div>
+        <div class="legend-item"><span class="legend-dot blocked"></span>Blocked / time off</div>
+      </div>
+
+      <div class="side-divider"></div>
+
+      <div class="mini-stat-block">
+        <div class="mini-stat-title">This week</div>
+        <div class="mini-stat-row"><span>Available slots</span><strong>{{ availableCount() }}</strong></div>
+        <div class="mini-stat-row"><span>Booked slots</span><strong>{{ bookedCount() }}</strong></div>
+        <div class="mini-stat-row"><span>Blocked slots</span><strong>{{ blockedCount() }}</strong></div>
+      </div>
+    </aside>
+  </div>
+</main>

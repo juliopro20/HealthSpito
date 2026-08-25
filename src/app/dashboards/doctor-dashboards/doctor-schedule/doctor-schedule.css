@@ -1,0 +1,132 @@
+@import '../dashboard-shared.css';
+
+.doctor-schedule-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.week-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.week-label {
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 150px;
+  text-align: center;
+}
+
+.time-off-card {
+  margin-bottom: 20px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.schedule-grid-wrap {
+  padding: 20px;
+  overflow-x: auto;
+}
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 64px repeat(7, minmax(70px, 1fr));
+  gap: 6px;
+  min-width: 620px;
+}
+.sg-corner {
+  height: 44px;
+}
+.sg-day-head {
+  text-align: center;
+  padding: 8px 0;
+}
+.sg-day-name {
+  font-size: 11px;
+  color: #8a90a6;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.sg-day-num {
+  font-size: 15px;
+  font-weight: 700;
+}
+.sg-time-label {
+  font-size: 11px;
+  color: #8a90a6;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 6px;
+}
+.sg-cell {
+  height: 40px;
+  border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: #fff;
+  transition: transform 0.1s ease;
+}
+.sg-cell:hover {
+  transform: scale(1.04);
+}
+.sg-cell.available {
+  background: #e9f3ff;
+  cursor: pointer;
+}
+.sg-cell.booked {
+  background: #3f7ff0;
+  cursor: not-allowed;
+}
+.sg-cell.blocked {
+  background: #ffe0da;
+}
+
+.legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #5b6072;
+}
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+.legend-dot.available {
+  background: #e9f3ff;
+  border: 1.5px solid #3f7ff0;
+}
+.legend-dot.booked {
+  background: #3f7ff0;
+}
+.legend-dot.blocked {
+  background: #ffe0da;
+}
+
+@media (max-width: 640px) {
+  .schedule-grid-wrap {
+    padding: 14px;
+  }
+}

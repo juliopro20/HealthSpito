@@ -39,6 +39,14 @@ import { ChatDashboard } from './dashboards/patient-dashboards/chat-dashboard/ch
 import { CalenderDashboard } from './dashboards/patient-dashboards/calender-dashboard/calender-dashboard';
 import { BookAppointment } from './dashboards/patient-dashboards/book-appointment/book-appointment';
 import { DoctorDashboard } from './dashboards/doctor-dashboards/doctor-dashboard/doctor-dashboard';
+import { DoctorAppointments } from './dashboards/doctor-dashboards/doctor-appointment/doctor-appointment';
+import { DoctorBlog } from './dashboards/doctor-dashboards/doctor-blog/doctor-blog';
+import { DoctorHelp } from './dashboards/doctor-dashboards/doctor-help/doctor-help';
+import { DoctorMessages } from './dashboards/doctor-dashboards/doctor-messages/doctor-messages';
+import { DoctorPharmacies } from './dashboards/doctor-dashboards/doctor-pharmacies/doctor-pharmacies';
+import { DoctorProfile } from './dashboards/doctor-dashboards/doctor-profile/doctor-profile';
+import { DoctorSchedule } from './dashboards/doctor-dashboards/doctor-schedule/doctor-schedule';
+import { DoctorPatientRecord } from './dashboards/doctor-dashboards/doctor-patient-record/doctor-patient-record';
 
 export const routes: Routes = [
   {
@@ -104,35 +112,50 @@ export const routes: Routes = [
     ],
   },
 
-
   // ===========Users Dashboards routes ===================//
 
-    // 1. Patient Dashboards routes{all} ===================//
+  // 1. Patient Dashboards routes{all} ===================//
   {
-    path: 'patient-dashboard', component: PatientDashboard
+    path: 'patient-dashboard',
+    component: PatientDashboard,
   },
   {
-    path: 'aichat-dashboard', component: AiChatDashboard
+    path: 'aichat-dashboard',
+    component: AiChatDashboard,
   },
   {
-    path: 'appointment-dashboard', component: AppointmentDashboard
+    path: 'appointment-dashboard',
+    component: AppointmentDashboard,
   },
   {
-    path: 'record-dashboard', component: RecordDashboard
+    path: 'record-dashboard',
+    component: RecordDashboard,
   },
   {
-    path: 'chat-dashboard', component: ChatDashboard
+    path: 'chat-dashboard',
+    component: ChatDashboard,
   },
   {
-    path: 'calender-dashboard', component: CalenderDashboard
+    path: 'calender-dashboard',
+    component: CalenderDashboard,
   },
-   {
-    path: 'book-doctor', component: BookAppointment
+  {
+    path: 'book-doctor',
+    component: BookAppointment,
   },
 
-    
   // 2. doctor Dashboards routes{all} ===================//
   {
-    path: 'doctor-dashboard', component: DoctorDashboard
-  }
+    path: 'doctor-dashboard',
+    component: DoctorDashboard,
+  },
+
+  { path: 'doctor-patient-records', component: DoctorPatientRecord  },
+  { path: 'doctor-appointments', component: DoctorAppointments },
+  { path: 'doctor-schedule', component: DoctorSchedule },
+  { path: 'doctor-messages', component: DoctorMessages },
+  { path: 'doctor-blog', component: DoctorBlog },
+  { path: 'doctor-pharmacies', component: DoctorPharmacies },
+  { path: 'doctor-help', component: DoctorHelp },
+  { path: 'doctor-profile', component: DoctorProfile },
 ];

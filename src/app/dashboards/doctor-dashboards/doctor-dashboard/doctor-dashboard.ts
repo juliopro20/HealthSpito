@@ -2,6 +2,7 @@ import { Component, DOCUMENT, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Sidebar } from '../sidebar/sidebar';
 
 type PatientStatus = 'Stable' | 'Critical' | 'Follow-up';
 
@@ -58,7 +59,7 @@ interface PrescriptionFormModel {
 
 @Component({
   selector: 'app-doctor-dashboard',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Sidebar],
   templateUrl: './doctor-dashboard.html',
   styleUrl: './doctor-dashboard.css',
 })

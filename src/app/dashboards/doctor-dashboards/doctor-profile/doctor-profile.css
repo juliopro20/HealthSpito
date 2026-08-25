@@ -1,0 +1,147 @@
+@import '../dashboard-shared.css';
+
+.doctor-profile-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.vertical-tabs {
+  flex-direction: column;
+  width: 100%;
+  background: #ffffff;
+  padding: 8px;
+}
+.vertical-tabs button {
+  text-align: left;
+  padding: 12px 14px;
+}
+
+.settings-card {
+  padding: 26px 28px;
+}
+.settings-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.avatar-lg {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.settings-title {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+.settings-sub {
+  font-size: 12.5px;
+  color: #8a90a6;
+  margin-top: 2px;
+}
+
+.settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid #eef0f6;
+  margin-top: 6px;
+}
+.saved-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #1fa971;
+}
+
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 4px;
+  border-bottom: 1px solid #f2f4fa;
+}
+.toggle-row:last-child {
+  border-bottom: none;
+}
+.toggle-title {
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.toggle-sub {
+  font-size: 11.5px;
+  color: #8a90a6;
+  margin-top: 2px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #dfe3ef;
+  border-radius: 24px;
+  transition: background 0.15s ease;
+}
+.slider::before {
+  content: '';
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.15s ease;
+}
+.switch input:checked + .slider {
+  background: #3f7ff0;
+}
+.switch input:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+@media (max-width: 900px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+  .vertical-tabs {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .vertical-tabs button {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
