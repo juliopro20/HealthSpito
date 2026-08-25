@@ -1,0 +1,36 @@
+
+<section class="feature-component">
+  <div class="main-content fade-in-up">
+    <div class="text">
+      <p>
+        Join a network of dedicated health care centers and harness the power of
+        AI to support whole-person, community-based care. Our platform delivers
+        smart tools and resources to manage care plans, track health metrics,
+        coordinate services, and maintain compliance—all while prioritizing
+        accessibility and equity. By creating an account, you're taking a
+        purposeful step toward improving population health and advancing
+        integrated, patient-centered care.
+      </p>
+      <button (click)="onBoardHealthCare()">Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-content">
+    <div class="card" *ngFor="let item of featuresArray">
+      <img src="{{ item.icon }}" alt="" />
+      <h2>{{ item.text }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div>
+    <p>Create an account in other to benefit from all these features</p>
+    <button (click)="onBoardHealthCare()">Create An Account</button>
+  </div>
+</section>
+
+<app-footer></app-footer>

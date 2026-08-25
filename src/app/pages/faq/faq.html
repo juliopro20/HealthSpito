@@ -1,0 +1,80 @@
+<main>
+    <section class="faq">
+    <div class="faq-content">
+        <h1>Frequently Asked <br>Questions</h1>
+        <p style="text-align: center; font-size: 1.4em; line-height: 1; margin-bottom: 20px;">Do you need some help with something or do you have <br>questions on some features</p>
+       
+          <div class="faq-accordions">
+            <cdk-accordion class="example-accordion">
+                @for (item1 of accordion1; track item1.key; let index = $index) {
+                  <cdk-accordion-item
+              
+                    #accordionItem="cdkAccordionItem"
+                    class="example-accordion-item"
+                    role="button"
+                    tabindex="0"
+                    [attr.id]="'accordion-header-' + index"
+                    [attr.aria-expanded]="accordionItem.expanded"
+                    [attr.aria-controls]="'accordion-body-' + index">
+                    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                      {{ item1.key }}. {{item1.question1}}
+                      <span class="example-accordion-item-description">
+                     {{ accordionItem.expanded ? '-' : '+' }}
+                      </span>
+                    </div>
+                    <div
+                      class="example-accordion-item-body"
+                      role="region"
+                      [style.display]="accordionItem.expanded ? '' : 'none'"
+                      [attr.id]="'accordion-body-' + index"
+                      [attr.aria-labelledby]="'accordion-header-' + index">
+
+                      {{item1.asnwer1}}
+
+                    </div>
+                  </cdk-accordion-item>
+                }
+              </cdk-accordion>
+          
+              <cdk-accordion class="example-accordion">
+                @for (item2 of accordion2; track item2; let index = $index) {
+                  <cdk-accordion-item
+              
+                    #accordionItem="cdkAccordionItem"
+                    class="example-accordion-item"
+                    role="button"
+                    tabindex="0"
+                    [attr.id]="'accordion-header-' + index"
+                    [attr.aria-expanded]="accordionItem.expanded"
+                    [attr.aria-controls]="'accordion-body-' + index">
+                    <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
+                        {{ item2.key }}. {{item2.question2}}
+                      <span class="example-accordion-item-description">
+                     {{ accordionItem.expanded ? '-' : '+' }}
+                      </span>
+                    </div>
+                    <div
+                      class="example-accordion-item-body"
+                      role="region"
+                      [style.display]="accordionItem.expanded ? '' : 'none'"
+                      [attr.id]="'accordion-body-' + index"
+                      [attr.aria-labelledby]="'accordion-header-' + index"
+                     
+                      >
+                      {{item2.answer2}}
+                    </div>
+                  </cdk-accordion-item>
+                }
+              </cdk-accordion>
+              
+
+          </div>
+          <p style="text-align: center; margin-top: 20px; font-size: 1.5em;">Question not answered?, <span>Contact Us</span></p>
+    </div>
+
+
+
+</section>
+
+<app-footer></app-footer>
+</main>

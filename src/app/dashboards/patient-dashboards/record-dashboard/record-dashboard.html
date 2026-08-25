@@ -1,0 +1,392 @@
+<main class="record-dashboard">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo.png" alt="" />
+      </div>
+
+      <div class="profile">
+        <img src="https://i.pravatar.cc/80?img=47" alt="Sierra Lisbon" />
+        <div>
+          <div class="p-name">Sierra Lisbon</div>
+          <div class="p-email">s.ferguson@gmail.com</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <p (click)="patientDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" /></svg
+          ><span>Dashboard</span>
+        </p>
+        <p (click)="appointmentDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" /></svg
+          ><span>Appointment</span>
+        </p>
+        <p class="active" (click)="recordDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M8 2v4M16 2v4M4 9h16M6 4h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+            />
+            <path d="M9 14l2 2 4-4" /></svg
+          ><span>Record</span>
+        </p>
+        <p (click)="chatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"
+            /></svg
+          ><span>Chat</span>
+        </p>
+        <p (click)="calenderDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" />
+            <path d="M8 14h2M14 14h2M8 17h2" /></svg
+          ><span>Calendar</span>
+        </p>
+        <p (click)="aiChatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+            <path d="M9 10l1 1 2-2" /></svg
+          ><span>AI Assistant</span>
+        </p>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg
+          ><span>Account</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"
+            /></svg
+          ><span>Settings</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4" />
+            <circle cx="12" cy="17" r=".5" fill="currentColor" /></svg
+          ><span>Help center</span></a
+        >
+      </div>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="16"
+            height="16"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Global search" />
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 6h16M4 12h16M4 18h11" />
+          </svg>
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="page-head">
+        <h1 style="margin:15px 0">Medical records</h1>
+        <p>All your documents, test results and history in one place</p>
+      </div>
+
+      <div class="rec-toolbar">
+        <div class="chip-row">
+          <div class="chip active">All files</div>
+          <div class="chip">Lab results</div>
+          <div class="chip">Prescriptions</div>
+          <div class="chip">Imaging</div>
+        </div>
+        <button class="new-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2.5"
+          >
+            <path d="M12 5v14M5 12h14" /></svg
+          >Upload record
+        </button>
+      </div>
+
+      <div class="rec-table">
+        <div class="rec-row head">
+          <div></div>
+          <div class="rh">Document</div>
+          <div class="rh col-hide">Doctor</div>
+          <div class="rh col-hide">Date</div>
+          <div></div>
+        </div>
+
+        <div class="rec-row">
+          <div class="rec-icon pdf">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <path d="M14 2v6h6" />
+            </svg>
+          </div>
+          <div>
+            <div class="rec-name">Blood test results</div>
+            <div class="rec-sub">PDF &middot; 1.2 MB</div>
+          </div>
+          <div class="rec-meta col-hide">Dr. Amelia Rho</div>
+          <div class="rec-meta col-hide">09.06.2020</div>
+          <div class="dl-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="rec-row">
+          <div class="rec-icon img">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="9" cy="9" r="2" />
+              <path d="M21 15l-5-5L5 21" />
+            </svg>
+          </div>
+          <div>
+            <div class="rec-name">Chest X-ray scan</div>
+            <div class="rec-sub">JPG &middot; 3.4 MB</div>
+          </div>
+          <div class="rec-meta col-hide">Dr. Owen Kade</div>
+          <div class="rec-meta col-hide">02.06.2020</div>
+          <div class="dl-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="rec-row">
+          <div class="rec-icon pdf">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <path d="M14 2v6h6" />
+            </svg>
+          </div>
+          <div>
+            <div class="rec-name">Prescription &ndash; Amoxicillin</div>
+            <div class="rec-sub">PDF &middot; 0.4 MB</div>
+          </div>
+          <div class="rec-meta col-hide">Nik Friman</div>
+          <div class="rec-meta col-hide">28.05.2020</div>
+          <div class="dl-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="rec-row">
+          <div class="rec-icon pdf">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <path d="M14 2v6h6" />
+            </svg>
+          </div>
+          <div>
+            <div class="rec-name">Annual check-up summary</div>
+            <div class="rec-sub">PDF &middot; 0.9 MB</div>
+          </div>
+          <div class="rec-meta col-hide">Nik Friman</div>
+          <div class="rec-meta col-hide">12.05.2020</div>
+          <div class="dl-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside class="card remind-card" style="min-height: auto">
+      <div class="storage-ring">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 130 130" width="130" height="130">
+            <circle
+              cx="65"
+              cy="65"
+              r="54"
+              fill="none"
+              stroke="#eef0f6"
+              stroke-width="14"
+            />
+            <circle
+              cx="65"
+              cy="65"
+              r="54"
+              fill="none"
+              stroke="#3f7ff0"
+              stroke-width="14"
+              stroke-dasharray="339"
+              stroke-dashoffset="120"
+              stroke-linecap="round"
+              transform="rotate(-90 65 65)"
+            />
+            <circle
+              cx="65"
+              cy="65"
+              r="54"
+              fill="none"
+              stroke="#63d29a"
+              stroke-width="14"
+              stroke-dasharray="339"
+              stroke-dashoffset="270"
+              stroke-linecap="round"
+              transform="rotate(45 65 65)"
+            />
+          </svg>
+          <div class="ring-label">
+            <div class="rl-num">64%</div>
+            <div class="rl-txt">used</div>
+          </div>
+        </div>
+        <div class="storage-legend">
+          <div class="leg-item">
+            <div class="leg-dot" style="background: #3f7ff0"></div>
+            <div class="leg-name">Lab results</div>
+            <div class="leg-val">12 files</div>
+          </div>
+          <div class="leg-item">
+            <div class="leg-dot" style="background: #63d29a"></div>
+            <div class="leg-name">Imaging</div>
+            <div class="leg-val">4 files</div>
+          </div>
+          <div class="leg-item">
+            <div class="leg-dot" style="background: #eef0f6"></div>
+            <div class="leg-name">Prescriptions</div>
+            <div class="leg-val">9 files</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>

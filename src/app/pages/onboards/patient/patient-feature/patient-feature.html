@@ -1,0 +1,38 @@
+<section class="feature-component">
+  <div class="main-content">
+    <div class="text">
+      <p>
+        "Taking care of your health is an investment in your well-being.
+        Registering at HealthSpito is the first step towards proactive
+        healthcare. With access to expert doctors, state-of-the-art facilities,
+        and comprehensive services, you're putting your health in the best
+        possible hands. Don't wait until it's too late. Prioritize your health
+        today!"
+      </p>
+      <p>
+        Here are some features you can experiences when using HealthSpito as
+        seen below.
+      </p>
+      <button (click)="onBoardPatient()" >Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+    <div class="feature-content">
+        <div class="card" *ngFor="let item of featuresArray">
+            <img src="{{item.icon}}" alt="">
+            <h2>{{item.text}}</h2>
+        </div>
+    </div>
+</section>
+
+<section class="bottom">
+    <div>
+        <p>Create an account in other to benefit from all these features</p>
+        <button (click)="onBoardPatient()">Create An Account</button>
+    </div>
+</section>
+
+<app-footer></app-footer>

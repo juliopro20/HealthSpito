@@ -1,0 +1,36 @@
+<p>clinic-features works!</p>
+<section class="feature-component">
+  <div class="main-content fade-in-up">
+    <div class="text">
+      <p>
+        Join a network of forward-thinking clinics and harness the power of AI
+        to transform outpatient care. Our platform provides intuitive tools and
+        resources to streamline scheduling, support accurate clinical
+        documentation, personalize treatment plans, and strengthen patient
+        engagement. By creating an account, you're taking a meaningful step
+        toward delivering more efficient, effective, and compassionate care in
+        your community.
+      </p>
+      <button (click)="onBoardClinic()">Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-content">
+    <div class="card" *ngFor="let item of featuresArray">
+      <img src="{{ item.icon }}" alt="" />
+      <h2>{{ item.text }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div>
+    <p>Create an account in other to benefit from all these features</p>
+    <button (click)="onBoardClinic()">Create An Account</button>
+  </div>
+</section>
+
+<app-footer></app-footer>

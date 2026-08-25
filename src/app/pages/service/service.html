@@ -1,0 +1,110 @@
+<main class="container1">
+  <section class="service">
+    <h1>Our <span>Services</span></h1>
+    <p class="service-para">
+      HealthSpito is an AI and Doctor Powered model web <br />
+      application which offers health service <br />
+      as seen below
+    </p>
+
+    <div class="service-conatainer">
+      @for (item of service; track $index) {
+        <div class="cards">
+          <img src="{{ item.img }}" alt="" />
+          <h2>{{ item.heading }}</h2>
+          <p>{{ item.text }}</p>
+        </div>
+      }
+    </div>
+  </section>
+</main>
+
+<main class="container2">
+  <section class="carousel">
+    <div class="core-functionalities">
+      <h2 class="section-title">Summary of core Functionalities</h2>
+
+      <div class="slider-container">
+        <!-- Previous Arrow -->
+        <button
+          class="slider-arrow prev"
+          (click)="prevSlide()"
+          aria-label="Previous Slide"
+        >
+          &lt;
+        </button>
+
+        <!-- Carousel Content Slide -->
+        <div class="slider-content">
+          @let currentItem = items[currentIndex()];
+
+          <img
+            [src]="currentItem.image"
+            [alt]="currentItem.title"
+            class="slider-image"
+          />
+
+          <div class="slider-text">
+            <h3>{{ currentItem.title }}</h3>
+            <ul>
+              @for (bullet of currentItem.bullets; track $index) {
+                <li>{{ bullet }}</li>
+              }
+            </ul>
+            <a href="#" class="more-small-btn">More</a>
+          </div>
+        </div>
+
+        <!-- Next Arrow -->
+        <button
+          class="slider-arrow next"
+          (click)="nextSlide()"
+          aria-label="Next Slide"
+        >
+          &gt;
+        </button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="dots">
+        @for (item of items; track $index) {
+          <span
+            class="dot"
+            [class.active]="$index === currentIndex()"
+            (click)="goToSlide($index)"
+            [attr.aria-label]="'Go to slide ' + ($index + 1)"
+          >
+          </span>
+        }
+      </div>
+    </div>
+  </section>
+</main>
+
+<main class="container3">
+  <h1>FeedBack from Our Users</h1>
+  <p class="feedback-text">
+    Our WORK speaks louder than our WORD. Find out how we helped clients <br />
+    overcome challenges and succeed.
+  </p>
+  <section class="feedback">
+    @for (item of feedback; track $index) {
+      <div class="cards">
+        <div class="feedback-top">
+          <img src="{{item.img}}" alt="" />
+          <div class="text">
+            <b><p>{{item.title}}</p></b>
+            <p>{{item.location}}</p>
+            <p>{{item.spec}}</p>
+          </div>
+        </div>
+        <p><i><b>{{item.text}}</b></i></p>
+        <p style="text-align: end;"><sub><i>{{item.time}} ago</i></sub></p>
+      </div>
+    }
+  </section>
+
+
+  <app-footer></app-footer>
+</main>
+

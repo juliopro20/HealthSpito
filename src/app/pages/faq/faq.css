@@ -1,0 +1,110 @@
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.faq-content h1 {
+  font-size: 3em;
+  line-height: 1;
+  margin: 20px;
+}
+section.faq {
+  max-width: 80%;
+  width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.border-bottom {
+  width: 200px;
+  height: 8px;
+  background-color: #1c2135;
+  border-radius: 20px;
+}
+
+.faq-content {
+  width: 80%;
+  margin: auto;
+  padding: 100px 0;
+  gap: 50px;
+}
+
+.faq-content h1 {
+  text-align: center;
+}
+
+.faq h6 span {
+  color: #665a94;
+  cursor: pointer;
+}
+
+.faq-accordions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  gap: 50px;
+  font-size: 1.6em;
+  line-height: 1;
+}
+
+/* codes for the accordion using angular materials */
+
+.example-accordion {
+  display: block;
+  max-width: 750px;
+}
+
+.example-accordion-item {
+  display: block;
+  border: solid 1px #ccc;
+}
+
+.example-accordion-item + .example-accordion-item {
+  border-top: none;
+}
+
+.example-accordion-item-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.example-accordion-item-description {
+  font-size: 20px;
+  color: black;
+}
+
+.example-accordion-item-header,
+.example-accordion-item-body {
+  padding: 16px;
+}
+
+.example-accordion-item-header:hover {
+  cursor: pointer;
+  background-color: #eee;
+}
+
+.example-accordion-item:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.example-accordion-item:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+@media screen and (max-width: 700px) {
+  .faq-accordions {
+    grid-template-columns: 1fr;
+  }
+
+  section.faq {
+    margin-top: 10px;
+  }
+}

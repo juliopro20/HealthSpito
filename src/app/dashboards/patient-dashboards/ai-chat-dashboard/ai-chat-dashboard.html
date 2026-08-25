@@ -1,0 +1,410 @@
+<main class="ai-dashboard">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo.png" alt="">
+      </div>
+
+      <div class="profile">
+        <img src="https://i.pravatar.cc/80?img=47" alt="Sierra Lisbon" />
+        <div>
+          <div class="p-name">Sierra Lisbon</div>
+          <div class="p-email">s.ferguson@gmail.com</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <p  (click)="patientDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" /></svg
+          ><span>Dashboard</span>
+        </p>
+        <p (click)="appointmentDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" /></svg
+          ><span>Appointment</span>
+        </p>
+        <p (click)="recordDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M8 2v4M16 2v4M4 9h16M6 4h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+            />
+            <path d="M9 14l2 2 4-4" /></svg
+          ><span>Record</span>
+        </p>
+        <p (click)="chatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"
+            /></svg
+          ><span>Chat</span>
+        </p>
+        <p (click)="calenderDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" />
+            <path d="M8 14h2M14 14h2M8 17h2" /></svg
+          ><span>Calendar</span>
+        </p>
+        <p class="active" (click)="aiChatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+            <path d="M9 10l1 1 2-2" /></svg
+          ><span>AI Assistant</span>
+        </p>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg
+          ><span>Account</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"
+            /></svg
+          ><span>Settings</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4" />
+            <circle cx="12" cy="17" r=".5" fill="currentColor" /></svg
+          ><span>Help center</span></a
+        >
+      </div>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="16"
+            height="16"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+        <input type="text" placeholder="Global search">
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 6h16M4 12h16M4 18h11" />
+          </svg>
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="page-head">
+        <h1>AI Assistant</h1>
+        <p>Ask about symptoms, medication or your recent results</p>
+      </div>
+
+      <div class="ai-wrap">
+        <div class="ai-thread-card">
+          <div class="ai-thread-head">
+            <div class="ai-avatar">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"
+                />
+                <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                <path d="M9 10l1 1 2-2" />
+              </svg>
+            </div>
+            <div>
+              <div class="th-name">HealthSpito AI</div>
+              <div class="th-status">Always available</div>
+            </div>
+            <div class="th-actions">
+              <button class="new-chat-btn">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path d="M12 5v14M5 12h14" /></svg
+                >New chat
+              </button>
+            </div>
+          </div>
+
+          <div class="ai-thread-body">
+            <div class="msg-day">Today</div>
+
+            <div class="ai-bubble-row">
+              <div class="ai-avatar sm">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"
+                  />
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+              </div>
+              <div>
+                <div class="ai-bubble">
+                  Hi Kate, I'm your HealthSpito AI assistant. I can help explain test
+                  results, check medication timing, or get you ready for an
+                  appointment. What's on your mind?
+                </div>
+                <span class="ai-bubble-time">09:41 AM</span>
+              </div>
+            </div>
+
+            <div class="ai-bubble-row me">
+              <img src="https://i.pravatar.cc/80?img=47" alt="" />
+              <div>
+                <div class="ai-bubble">
+                  Can you explain what my A+ blood type means for the flu shot
+                  I'm getting next week?
+                </div>
+                <span class="ai-bubble-time">09:42 AM</span>
+              </div>
+            </div>
+
+            <div class="ai-bubble-row">
+              <div class="ai-avatar sm">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"
+                  />
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+              </div>
+              <div>
+                <div class="ai-bubble">
+                  Good news &ndash; blood type doesn't affect flu shot safety or
+                  timing. A few things that actually matter:
+                  <ul>
+                    <li>Any current fever or illness</li>
+                    <li>Allergies to egg protein or prior vaccine reactions</li>
+                    <li>Other medications you're taking this week</li>
+                  </ul>
+                  Want me to check your record for any of these before Thursday?
+                </div>
+                <span class="ai-bubble-time">09:42 AM</span>
+              </div>
+            </div>
+
+            <div class="ai-bubble-row me">
+              <img src="https://i.pravatar.cc/80?img=47" alt="" />
+              <div>
+                <div class="ai-bubble">Yes please, that'd be great.</div>
+                <span class="ai-bubble-time">09:43 AM</span>
+              </div>
+            </div>
+
+            <div class="ai-bubble-row">
+              <div class="ai-avatar sm">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"
+                  />
+                  <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                </svg>
+              </div>
+              <div class="typing-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="suggest-row">
+            <div class="suggest-chip">Summarize my last blood test</div>
+            <div class="suggest-chip">Am I due for any vaccines?</div>
+            <div class="suggest-chip">Prep questions for Dr. Friman</div>
+          </div>
+
+          <div class="ai-thread-input">
+            <input
+              type="text"
+              placeholder="Ask HealthSpito AI AI anything about your health..."
+            />
+            <div class="send-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="ai-side-card">
+            <h4>Quick actions</h4>
+            <div class="quick-list">
+              <div class="quick-item">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="M8 12h5M8 15h3" /></svg
+                >Explain a test result
+              </div>
+              <div class="quick-item">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="8" cy="8" r="5" />
+                  <circle cx="16" cy="16" r="5" /></svg
+                >Check drug interactions
+              </div>
+              <div class="quick-item">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="4" width="18" height="17" rx="2" />
+                  <path d="M3 9h18M8 3v3M16 3v3" /></svg
+                >Prep for an appointment
+              </div>
+              <div class="quick-item">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"
+                  /></svg
+                >Ask about symptoms
+              </div>
+            </div>
+          </div>
+
+          <div class="ai-side-card">
+            <h4>Recent chats</h4>
+            <div class="quick-list">
+              <div class="quick-item">Sleep &amp; headache patterns</div>
+              <div class="quick-item">Understanding cholesterol levels</div>
+              <div class="quick-item">Post check-up follow-up</div>
+            </div>
+          </div>
+
+          <div class="disclaimer">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M12 9v4M12 17h.01M10.3 3.9L2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"
+              />
+            </svg>
+            <div>
+              HealthSpito AI AI offers general guidance and doesn't replace advice from
+              your doctor. For urgent symptoms, contact your care team directly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</main>

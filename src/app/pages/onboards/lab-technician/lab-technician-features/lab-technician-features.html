@@ -1,0 +1,35 @@
+<section class="feature-component">
+  <div class="main-content fade-in-up">
+    <div class="text">
+      <p >
+        Join a community of dedicated laboratory professionals and harness the
+        power of AI to elevate your diagnostic precision and workflow
+        efficiency. Our platform provides cutting-edge tools and resources to
+        support accurate test analysis, streamlined lab reporting, and
+        continuous professional growth. By creating an account, you're taking a
+        vital step toward enhancing diagnostic reliability and advancing the
+        science behind patient care.
+      </p>
+      <button (click)="onBoardLabTechnician()">Register to get started</button>
+    </div>
+    <img src="onboards.png" alt="" />
+  </div>
+</section>
+
+<section class="feature">
+  <div class="feature-content">
+    <div class="card" *ngFor="let item of featuresArray">
+      <img src="{{ item.icon }}" alt="" />
+      <h2>{{ item.text }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="bottom">
+  <div>
+    <p>Create an account in other to benefit from all these features</p>
+    <button (click)="onBoardLabTechnician()">Create An Account</button>
+  </div>
+</section>
+
+<app-footer></app-footer>

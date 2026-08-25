@@ -1,0 +1,392 @@
+<main class="appointment-dashboard">
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo.png" alt="" />
+      </div>
+
+      <div class="profile">
+        <img src="https://i.pravatar.cc/80?img=47" alt="Sierra Lisbon" />
+        <div>
+          <div class="p-name">Sierra Lisbon</div>
+          <div class="p-email">s.ferguson@gmail.com</div>
+        </div>
+      </div>
+      <nav class="nav">
+        <p (click)="patientDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="7" height="7" rx="1.5" />
+            <rect x="14" y="3" width="7" height="7" rx="1.5" />
+            <rect x="3" y="14" width="7" height="7" rx="1.5" />
+            <rect x="14" y="14" width="7" height="7" rx="1.5" /></svg
+          ><span>Dashboard</span>
+        </p>
+        <p class="active" (click)="appointmentDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" /></svg
+          ><span>Appointment</span>
+        </p>
+        <p (click)="recordDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M8 2v4M16 2v4M4 9h16M6 4h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
+            />
+            <path d="M9 14l2 2 4-4" /></svg
+          ><span>Record</span>
+        </p>
+        <p (click)="chatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5z"
+            /></svg
+          ><span>Chat</span>
+        </p>
+        <p (click)="calenderDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M3 9h18M8 3v3M16 3v3" />
+            <path d="M8 14h2M14 14h2M8 17h2" /></svg
+          ><span>Calendar</span>
+        </p>
+        <p (click)="aiChatDashboards()">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z" />
+            <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+            <path d="M9 10l1 1 2-2" /></svg
+          ><span>AI Assistant</span>
+        </p>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" /></svg
+          ><span>Account</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"
+            /></svg
+          ><span>Settings</span></a
+        >
+        <a href="#"
+          ><svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 2-3 4" />
+            <circle cx="12" cy="17" r=".5" fill="currentColor" /></svg
+          ><span>Help center</span></a
+        >
+      </div>
+    </aside>
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="16"
+            height="16"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+         <input type="text" placeholder="Global search">
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 6h16M4 12h16M4 18h11" />
+          </svg>
+        </div>
+        <div class="icon-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="page-head">
+        <h1>Appointments</h1>
+        <p>Manage your upcoming and past visits</p>
+      </div>
+
+      <div class="appt-toolbar">
+        <div class="tabs">
+          <button class="active">Upcoming</button>
+          <button>Completed</button>
+          <button>Cancelled</button>
+        </div>
+        <button class="new-btn">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2.5"
+          >
+            <path d="M12 5v14M5 12h14" /></svg
+          >Book appointment
+        </button>
+      </div>
+
+      <div class="appt-list">
+        <div class="appt-card">
+          <div class="appt-date">
+            <div class="num">10</div>
+            <div class="mon">Jun</div>
+          </div>
+          <div class="appt-body">
+            <div class="a-title">General consultation</div>
+            <div class="a-sub">14:00 &ndash; 14:30 &middot; Room 204</div>
+          </div>
+          <div class="appt-doc">
+            <img src="https://i.pravatar.cc/80?img=13" alt="" />
+            <div>
+              <div class="ad-name">Nik Friman</div>
+              <div class="ad-role">Therapist</div>
+            </div>
+          </div>
+          <div class="status confirmed">Confirmed</div>
+          <div class="appt-actions">
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="appt-card">
+          <div class="appt-date">
+            <div class="num">12</div>
+            <div class="mon">Jun</div>
+          </div>
+          <div class="appt-body">
+            <div class="a-title">Blood test review</div>
+            <div class="a-sub">09:00 &ndash; 09:20 &middot; Lab 1</div>
+          </div>
+          <div class="appt-doc">
+            <img src="https://i.pravatar.cc/80?img=32" alt="" />
+            <div>
+              <div class="ad-name">Dr. Amelia Rho</div>
+              <div class="ad-role">Pathologist</div>
+            </div>
+          </div>
+          <div class="status confirmed">Confirmed</div>
+          <div class="appt-actions">
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="appt-card">
+          <div class="appt-date">
+            <div class="num">15</div>
+            <div class="mon">Jun</div>
+          </div>
+          <div class="appt-body">
+            <div class="a-title">Nutrition check-in</div>
+            <div class="a-sub">16:30 &ndash; 17:00 &middot; Online</div>
+          </div>
+          <div class="appt-doc">
+            <img src="https://i.pravatar.cc/80?img=25" alt="" />
+            <div>
+              <div class="ad-name">Dr. Owen Kade</div>
+              <div class="ad-role">Nutritionist</div>
+            </div>
+          </div>
+          <div class="status pending">Pending</div>
+          <div class="appt-actions">
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div class="square-btn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside class="card remind-card" style="min-height: auto">
+      <div class="mini-cal">
+        <div class="mini-cal-head">
+          <span>June 2020</span>
+          <div class="nav-arrows">
+            <div>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path d="M15 6l-6 6 6 6" />
+              </svg>
+            </div>
+            <div>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <path d="M9 6l6 6-6 6" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div class="mini-cal-grid">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=e23c48d9868ac6ff0cf90b4244a7aa213922ea9f3b7da1dee141bb411b6f39ef%40group.calendar.google.com&ctz=Africa%2FLagos"
+            style="border: 0"
+            width="800"
+            height="600"
+            frameborder="0"
+            scrolling="no"
+          ></iframe>
+        </div>
+      </div>
+      <div class="doc-pick">
+        <div class="doc-pick-item">
+          <img src="https://i.pravatar.cc/80?img=13" alt="" />
+          <div>
+            <div class="dp-name">Nik Friman</div>
+            <div class="dp-role">Therapist &middot; Available today</div>
+          </div>
+        </div>
+        <div class="doc-pick-item">
+          <img src="https://i.pravatar.cc/80?img=32" alt="" />
+          <div>
+            <div class="dp-name">Dr. Amelia Rho</div>
+            <div class="dp-role">Pathologist &middot; Available Mon</div>
+          </div>
+        </div>
+        <div class="doc-pick-item">
+          <img src="https://i.pravatar.cc/80?img=25" alt="" />
+          <div>
+            <div class="dp-name">Dr. Owen Kade</div>
+            <div class="dp-role">Nutritionist &middot; Available Wed</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
