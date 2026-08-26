@@ -1,0 +1,57 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-payments-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.receipt-card {
+  max-width: 420px;
+}
+.receipt-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.receipt-title {
+  font-size: 15.5px;
+  font-weight: 700;
+}
+.receipt-sub {
+  font-size: 12px;
+  color: #8a90a6;
+  margin-top: 2px;
+}
+.receipt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 8px 0;
+  color: #5b6072;
+}
+.receipt-row strong {
+  color: #1b1f2a;
+}
+.receipt-row.total {
+  font-size: 15px;
+}
+.receipt-row.total strong {
+  font-size: 18px;
+  color: #3f7ff0;
+}
+.receipt-divider {
+  height: 1px;
+  background: #eef0f6;
+  margin: 8px 0;
+}
+.full-w {
+  width: 100%;
+  justify-content: center;
+}
+.receipt-print {
+  margin-top: 16px;
+}

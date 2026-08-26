@@ -1,0 +1,150 @@
+<main class="pharmacy-drugs-page">
+  <div class="app no-rail">
+    <app-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search drugs..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Drug Inventory</h1>
+        <p>Track stock levels, prices and expiry dates</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="inline-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or category..." />
+        </div>
+        <div class="chip-row">
+          @for (f of filters; track f) {
+            <div class="chip" [class.active]="activeFilter() === f" (click)="setFilter(f)">{{ f }}</div>
+          }
+        </div>
+        <button class="new-btn" (click)="toggleForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12h14" /></svg>
+          Add drug
+        </button>
+      </div>
+
+      @if (showForm()) {
+        <div class="card drug-form-card">
+          <div class="rx-form-head">
+            <h3>Add a new drug</h3>
+            <div class="form-close" (click)="toggleForm()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </div>
+          </div>
+
+          <form #drugForm="ngForm" (ngSubmit)="addDrug(drugForm)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="d-name">Drug name</label>
+                <input
+                  type="text"
+                  id="d-name"
+                  name="name"
+                  [(ngModel)]="formModel.name"
+                  #name="ngModel"
+                  placeholder="e.g. Lisinopril 10mg"
+                  required
+                />
+                @if (name.invalid && name.touched) {
+                  <span class="error">Required</span>
+                }
+              </div>
+              <div class="form-group">
+                <label for="d-category">Category</label>
+                <select id="d-category" name="category" [(ngModel)]="formModel.category">
+                  @for (c of categories; track c) {
+                    <option [value]="c">{{ c }}</option>
+                  }
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="d-stock">Stock quantity</label>
+                <input type="number" id="d-stock" name="stock" [(ngModel)]="formModel.stock" #stock="ngModel" required min="0" />
+                @if (stock.invalid && stock.touched) {
+                  <span class="error">Required</span>
+                }
+              </div>
+              <div class="form-group">
+                <label for="d-price">Unit price ($)</label>
+                <input type="number" id="d-price" name="unitPrice" [(ngModel)]="formModel.unitPrice" step="0.01" min="0" />
+              </div>
+              <div class="form-group">
+                <label for="d-expiry">Expiry (MM.YYYY)</label>
+                <input type="text" id="d-expiry" name="expiry" [(ngModel)]="formModel.expiry" placeholder="e.g. 03.2027" />
+              </div>
+              <div class="form-group">
+                <label for="d-supplier">Supplier <span class="hint">(optional)</span></label>
+                <input type="text" id="d-supplier" name="supplier" [(ngModel)]="formModel.supplier" placeholder="e.g. MedSupply Co." />
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <div class="form-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+                Stock status is calculated automatically from quantity
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" (click)="toggleForm()">Cancel</button>
+                <button type="submit" class="btn-primary">Add drug</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      }
+
+      <div class="data-table">
+        <div class="d-row head" style="grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr 1fr;">
+          <div class="dh">Drug</div>
+          <div class="dh">Category</div>
+          <div class="dh">Stock</div>
+          <div class="dh">Unit price</div>
+          <div class="dh">Expiry</div>
+          <div class="dh">Status</div>
+        </div>
+        @for (d of filteredDrugs; track d.id) {
+          <div class="d-row" style="grid-template-columns: 2fr 1.2fr 1fr 1fr 1fr 1fr;">
+            <div class="cell-meta drug-name">{{ d.name }}</div>
+            <div class="cell-meta">{{ d.category }}</div>
+            <div class="cell-meta">{{ d.stock }} units</div>
+            <div class="cell-meta">${{ d.unitPrice.toFixed(2) }}</div>
+            <div class="cell-meta">{{ d.expiry }}</div>
+            <div>
+              <span
+                class="status"
+                [class.confirmed]="d.status === 'In stock'"
+                [class.pending]="d.status === 'Low stock'"
+                [class.critical]="d.status === 'Out of stock'"
+              >
+                {{ d.status }}
+              </span>
+            </div>
+          </div>
+        }
+        @if (filteredDrugs.length === 0) {
+          <div class="d-empty">No drugs match your search or filter.</div>
+        }
+      </div>
+    </main>
+  </div>
+</main>

@@ -1,0 +1,26 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-drugs-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.drug-form-card {
+  margin-bottom: 22px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+.drug-name {
+  font-weight: 700;
+  color: #1b1f2a;
+}

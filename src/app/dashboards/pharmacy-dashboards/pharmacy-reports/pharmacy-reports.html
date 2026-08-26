@@ -1,0 +1,88 @@
+<main class="pharmacy-reports-page">
+  <div class="app no-rail">
+    <app-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search reports..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Report &amp; Analysis</h1>
+        <p>Sales performance and inventory trends at a glance</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row">
+          @for (r of ranges; track r) {
+            <div class="chip" [class.active]="activeRange() === r" (click)="setRange(r)">{{ r }}</div>
+          }
+        </div>
+      </div>
+
+      <div class="stat-row">
+        @for (s of summary; track s.label) {
+          <div class="stat-card">
+            <div class="stat-value">{{ s.value }}</div>
+            <div class="stat-label">{{ s.label }}</div>
+            <div class="stat-delta">{{ s.delta }}</div>
+          </div>
+        }
+      </div>
+
+      <div class="report-grid">
+        <div class="card">
+          <h3 class="section-title">Top-selling drugs</h3>
+          <div class="bar-chart">
+            @for (d of topDrugsBySales; track d.name) {
+              <div class="bar-chart-row">
+                <div class="bar-chart-label">{{ d.name }}</div>
+                <div class="bar-track"><div class="bar-fill" [style.width.%]="d.pct"></div></div>
+                <div class="bar-chart-value">{{ d.pct }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="section-title">Revenue by week</h3>
+          <div class="bar-chart">
+            @for (w of revenueByWeek; track w.label) {
+              <div class="bar-chart-row">
+                <div class="bar-chart-label">{{ w.label }}</div>
+                <div class="bar-track"><div class="bar-fill" [style.width.%]="w.pct"></div></div>
+                <div class="bar-chart-value">{{ w.pct }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 18px;">
+        <h3 class="section-title">Sales by category</h3>
+        <div class="bar-chart">
+          @for (c of categoryBreakdown; track c.label) {
+            <div class="bar-chart-row">
+              <div class="bar-chart-label">{{ c.label }}</div>
+              <div class="bar-track"><div class="bar-fill" [style.width.%]="c.pct"></div></div>
+              <div class="bar-chart-value">{{ c.pct }}%</div>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</main>

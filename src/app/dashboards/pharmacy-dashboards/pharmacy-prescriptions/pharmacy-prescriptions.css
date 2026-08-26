@@ -1,0 +1,55 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-prescriptions-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.rx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rx-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.rx-patient {
+  min-width: 190px;
+  flex-shrink: 0;
+}
+.rx-med {
+  flex: 1;
+  min-width: 200px;
+}
+.rx-med-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.rx-med-dosage {
+  font-size: 12px;
+  color: #5b6072;
+  margin: 2px 0;
+}
+.rx-note {
+  font-size: 11.5px;
+  color: #8a90a6;
+}
+.rx-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.btn-primary.sm,
+.btn-secondary.sm {
+  padding: 9px 16px;
+  font-size: 12px;
+}

@@ -1,0 +1,118 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-patients-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.patients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.patient-profile-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.patient-profile-card:hover {
+  transform: translateY(-2px);
+}
+.patient-profile-card.selected {
+  border-color: #3f7ff0;
+}
+.patient-profile-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+}
+.pf-name {
+  font-weight: 700;
+  font-size: 13.5px;
+}
+.pf-sub {
+  font-size: 11px;
+  color: #8a90a6;
+  margin-bottom: 8px;
+}
+.pf-allergy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #5b6072;
+  margin-bottom: 8px;
+}
+.pf-allergy.warn {
+  color: #e0553f;
+}
+.pf-count {
+  font-size: 10.5px;
+  color: #8a90a6;
+}
+
+.profile-panel {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 24px 26px;
+}
+.record-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.detail-patient {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.detail-patient img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dp-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+.dp-sub {
+  font-size: 12.5px;
+  color: #5b6072;
+  margin-top: 2px;
+}
+.dp-contact {
+  font-size: 11.5px;
+  color: #8a90a6;
+}
+
+.allergy-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f9fd;
+  color: #5b6072;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.allergy-banner.warn {
+  background: #ffe9e6;
+  color: #e0553f;
+}

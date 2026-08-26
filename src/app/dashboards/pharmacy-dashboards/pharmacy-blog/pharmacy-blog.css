@@ -1,0 +1,69 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-blog-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.post-form-card {
+  margin-bottom: 22px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.post-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.post-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post-category {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2f5fd0;
+  background: #eaf1ff;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+.post-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.post-excerpt {
+  font-size: 12.5px;
+  color: #5b6072;
+  line-height: 1.5;
+}
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #8a90a6;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid #f2f4fa;
+}

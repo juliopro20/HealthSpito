@@ -47,6 +47,17 @@ import { DoctorPharmacies } from './dashboards/doctor-dashboards/doctor-pharmaci
 import { DoctorProfile } from './dashboards/doctor-dashboards/doctor-profile/doctor-profile';
 import { DoctorSchedule } from './dashboards/doctor-dashboards/doctor-schedule/doctor-schedule';
 import { DoctorPatientRecord } from './dashboards/doctor-dashboards/doctor-patient-record/doctor-patient-record';
+import { PharmacyDashboard } from './dashboards/pharmacy-dashboards/pharmacy-dashboard/pharmacy-dashboard';
+import { PharmacyPrescriptions } from './dashboards/pharmacy-dashboards/pharmacy-prescriptions/pharmacy-prescriptions';
+import { PharmacyDrugs } from './dashboards/pharmacy-dashboards/pharmacy-drugs/pharmacy-drugs';
+import { PharmacyOrders } from './dashboards/pharmacy-dashboards/pharmacy-orders/pharmacy-orders';
+import { PharmacyBlog } from './dashboards/pharmacy-dashboards/pharmacy-blog/pharmacy-blog';
+import { PharmacyHelp } from './dashboards/pharmacy-dashboards/pharmacy-help/pharmacy-help';
+import { PharmacyMessages } from './dashboards/pharmacy-dashboards/pharmacy-messages/pharmacy-messages';
+import { PharmacyPatientProfiles } from './dashboards/pharmacy-dashboards/pharmacy-patient-profiles/pharmacy-patient-profiles';
+import { PharmacyPayments } from './dashboards/pharmacy-dashboards/pharmacy-payments/pharmacy-payments';
+import { PharmacyProfile } from './dashboards/pharmacy-dashboards/pharmacy-profile/pharmacy-profile';
+import { PharmacyReports } from './dashboards/pharmacy-dashboards/pharmacy-reports/pharmacy-reports';
 
 export const routes: Routes = [
   {
@@ -150,7 +161,7 @@ export const routes: Routes = [
     component: DoctorDashboard,
   },
 
-  { path: 'doctor-patient-records', component: DoctorPatientRecord  },
+  { path: 'doctor-patient-records', component: DoctorPatientRecord },
   { path: 'doctor-appointments', component: DoctorAppointments },
   { path: 'doctor-schedule', component: DoctorSchedule },
   { path: 'doctor-messages', component: DoctorMessages },
@@ -158,4 +169,17 @@ export const routes: Routes = [
   { path: 'doctor-pharmacies', component: DoctorPharmacies },
   { path: 'doctor-help', component: DoctorHelp },
   { path: 'doctor-profile', component: DoctorProfile },
+
+  // 3. pharmacy Dashboards routes{all} ===================//
+  { path: 'pharmacy-dashboard', component: PharmacyDashboard },
+  { path: 'pharmacy-prescriptions', component: PharmacyPrescriptions },
+  { path: 'pharmacy-drugs', component: PharmacyDrugs },
+  { path: 'pharmacy-orders', component: PharmacyOrders },
+  { path: 'pharmacy-payments', component: PharmacyPayments },
+  { path: 'pharmacy-messages', component: PharmacyMessages },
+  { path: 'pharmacy-blog', component: PharmacyBlog },
+  { path: 'pharmacy-patient-profiles', component: PharmacyPatientProfiles },
+  { path: 'pharmacy-reports', component: PharmacyReports },
+  { path: 'pharmacy-help', component: PharmacyHelp },
+  { path: 'pharmacy-profile', component: PharmacyProfile },
 ];

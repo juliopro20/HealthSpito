@@ -1,0 +1,54 @@
+@import '../dashboard-shared.css';
+
+.pharmacy-orders-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.order-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.order-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.order-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.order-total {
+  font-size: 16px;
+  font-weight: 800;
+}
+.order-items {
+  font-size: 12.5px;
+  color: #5b6072;
+}
+.order-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.btn-primary.sm,
+.btn-secondary.sm {
+  padding: 9px 16px;
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .pipeline-label {
+    display: none;
+  }
+}
