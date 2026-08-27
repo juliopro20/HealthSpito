@@ -1,0 +1,88 @@
+<main class="researcher-reports-page">
+  <div class="app no-rail">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search reports..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Report &amp; Analysis</h1>
+        <p>Research output, funding and citation trends</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row">
+          @for (r of ranges; track r) {
+            <div class="chip" [class.active]="activeRange() === r" (click)="setRange(r)">{{ r }}</div>
+          }
+        </div>
+      </div>
+
+      <div class="stat-row">
+        @for (s of summary; track s.label) {
+          <div class="stat-card">
+            <div class="stat-value">{{ s.value }}</div>
+            <div class="stat-label">{{ s.label }}</div>
+            <div class="stat-delta">{{ s.delta }}</div>
+          </div>
+        }
+      </div>
+
+      <div class="report-grid">
+        <div class="card">
+          <h3 class="section-title">Progress by project</h3>
+          <div class="bar-chart">
+            @for (p of progressByProject; track p.name) {
+              <div class="bar-chart-row">
+                <div class="bar-chart-label">{{ p.name }}</div>
+                <div class="bar-track"><div class="bar-fill" [style.width.%]="p.pct"></div></div>
+                <div class="bar-chart-value">{{ p.pct }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="section-title">Citations by year</h3>
+          <div class="bar-chart">
+            @for (c of citationsByYear; track c.label) {
+              <div class="bar-chart-row">
+                <div class="bar-chart-label">{{ c.label }}</div>
+                <div class="bar-track"><div class="bar-fill" [style.width.%]="c.pct"></div></div>
+                <div class="bar-chart-value">{{ c.pct }}%</div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 18px;">
+        <h3 class="section-title">Funding by agency</h3>
+        <div class="bar-chart">
+          @for (f of fundingByAgency; track f.label) {
+            <div class="bar-chart-row">
+              <div class="bar-chart-label">{{ f.label }}</div>
+              <div class="bar-track"><div class="bar-fill" [style.width.%]="f.pct"></div></div>
+              <div class="bar-chart-value">{{ f.pct }}%</div>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</main>

@@ -1,0 +1,149 @@
+<main class="data-access-page">
+  <div class="app no-rail">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search datasets..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Data Access</h1>
+        <p>Datasets you can use, and requests awaiting approval</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="inline-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" [(ngModel)]="searchTerm" placeholder="Search by name or source..." />
+        </div>
+        <div class="chip-row">
+          @for (f of filters; track f) {
+            <div class="chip" [class.active]="activeFilter() === f" (click)="setFilter(f)">{{ f }}</div>
+          }
+        </div>
+        <button class="new-btn" (click)="toggleForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12h14" /></svg>
+          Request access
+        </button>
+      </div>
+
+      @if (showForm()) {
+        <div class="card request-form-card">
+          @if (!formSubmitted()) {
+            <div class="rx-form-head">
+              <h3>Request dataset access</h3>
+              <div class="form-close" (click)="toggleForm()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12" /></svg>
+              </div>
+            </div>
+
+            <form #reqForm="ngForm" (ngSubmit)="submitRequest(reqForm)">
+              <div class="form-grid">
+                <div class="form-group full">
+                  <label for="r-name">Dataset name</label>
+                  <input
+                    type="text"
+                    id="r-name"
+                    name="datasetName"
+                    [(ngModel)]="formModel.datasetName"
+                    #datasetName="ngModel"
+                    placeholder="e.g. Hypertension Genomic Sequencing Panel"
+                    required
+                  />
+                  @if (datasetName.invalid && datasetName.touched) {
+                    <span class="error">Required</span>
+                  }
+                </div>
+                <div class="form-group">
+                  <label for="r-duration">Requested access duration</label>
+                  <input type="text" id="r-duration" name="duration" [(ngModel)]="formModel.duration" placeholder="e.g. 6 months" />
+                </div>
+                <div class="form-group"></div>
+                <div class="form-group full">
+                  <label for="r-justify">Justification</label>
+                  <textarea
+                    id="r-justify"
+                    name="justification"
+                    [(ngModel)]="formModel.justification"
+                    placeholder="Explain how this data will be used in your research..."
+                    rows="4"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-footer">
+                <div class="form-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+                  Reviewed by the data governance board within 5 business days
+                </div>
+                <div class="form-actions">
+                  <button type="button" class="btn-secondary" (click)="toggleForm()">Cancel</button>
+                  <button type="submit" class="btn-primary">Submit request</button>
+                </div>
+              </div>
+            </form>
+          } @else {
+            <div class="success-block sm">
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+              </div>
+              <div class="success-title">Request submitted</div>
+              <div class="success-sub">You'll be notified once it's reviewed.</div>
+            </div>
+          }
+        </div>
+      }
+
+      <div class="data-table">
+        <div class="d-row head" style="grid-template-columns: 2.2fr 1.4fr 1fr 1fr 1fr;">
+          <div class="dh">Dataset</div>
+          <div class="dh">Source</div>
+          <div class="dh">Sensitivity</div>
+          <div class="dh">Updated</div>
+          <div class="dh">Access</div>
+        </div>
+        @for (d of filteredDatasets; track d.id) {
+          <div class="d-row" style="grid-template-columns: 2.2fr 1.4fr 1fr 1fr 1fr;">
+            <div>
+              <div class="dataset-name">{{ d.name }}</div>
+              <div class="entity-sub">{{ d.recordCount }}</div>
+            </div>
+            <div class="cell-meta">{{ d.source }}</div>
+            <div class="cell-meta">{{ d.sensitivity }}</div>
+            <div class="cell-meta">{{ d.updated }}</div>
+            <div>
+              <span
+                class="status"
+                [class.confirmed]="d.status === 'Approved'"
+                [class.pending]="d.status === 'Pending'"
+                [class.critical]="d.status === 'Restricted'"
+              >
+                {{ d.status }}
+              </span>
+            </div>
+          </div>
+        }
+        @if (filteredDatasets.length === 0) {
+          <div class="d-empty">No datasets match your search or filter.</div>
+        }
+      </div>
+    </main>
+  </div>
+</main>

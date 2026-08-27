@@ -30,7 +30,6 @@ import { About } from './pages/about/about';
 import { Contact } from './pages/contact/contact';
 import { Service } from './pages/service/service';
 import { Faq } from './pages/faq/faq';
-import { AdminDashboard } from './dashboards/admin-dashboard/admin-dashboard';
 import { PatientDashboard } from './dashboards/patient-dashboards/patient-dashboard/patient-dashboard';
 import { AiChatDashboard } from './dashboards/patient-dashboards/ai-chat-dashboard/ai-chat-dashboard';
 import { AppointmentDashboard } from './dashboards/patient-dashboards/appointment-dashboard/appointment-dashboard';
@@ -58,6 +57,14 @@ import { PharmacyPatientProfiles } from './dashboards/pharmacy-dashboards/pharma
 import { PharmacyPayments } from './dashboards/pharmacy-dashboards/pharmacy-payments/pharmacy-payments';
 import { PharmacyProfile } from './dashboards/pharmacy-dashboards/pharmacy-profile/pharmacy-profile';
 import { PharmacyReports } from './dashboards/pharmacy-dashboards/pharmacy-reports/pharmacy-reports';
+import { ResearcherDashboard } from './dashboards/researcher-dashboards/researcher-dashboard/researcher-dashboard';
+import { ResearcherPublications } from './dashboards/researcher-dashboards/researcher-publications/researcher-publications';
+import { ResearcherHelp } from './dashboards/researcher-dashboards/researcher-help/researcher-help';
+import { ResearcherProfile } from './dashboards/researcher-dashboards/researcher-profile/researcher-profile';
+import { ResearcherReports } from './dashboards/researcher-dashboards/researcher-reports/researcher-reports';
+import { ResearcherCollaborations } from './dashboards/researcher-dashboards/researcher-collaborations/researcher-collaborations';
+import { ResearcherDataAccess } from './dashboards/researcher-dashboards/researcher-data-access/researcher-data-access';
+import { ResearcherProject } from './dashboards/researcher-dashboards/researcher-project/researcher-project';
 
 export const routes: Routes = [
   {
@@ -126,41 +133,16 @@ export const routes: Routes = [
   // ===========Users Dashboards routes ===================//
 
   // 1. Patient Dashboards routes{all} ===================//
-  {
-    path: 'patient-dashboard',
-    component: PatientDashboard,
-  },
-  {
-    path: 'aichat-dashboard',
-    component: AiChatDashboard,
-  },
-  {
-    path: 'appointment-dashboard',
-    component: AppointmentDashboard,
-  },
-  {
-    path: 'record-dashboard',
-    component: RecordDashboard,
-  },
-  {
-    path: 'chat-dashboard',
-    component: ChatDashboard,
-  },
-  {
-    path: 'calender-dashboard',
-    component: CalenderDashboard,
-  },
-  {
-    path: 'book-doctor',
-    component: BookAppointment,
-  },
+  { path: 'patient-dashboard',component: PatientDashboard, },
+  { path: 'aichat-dashboard',component: AiChatDashboard,},
+  { path: 'appointment-dashboard', component: AppointmentDashboard,},
+  { path: 'record-dashboard', component: RecordDashboard,},
+  { path: 'chat-dashboard', component: ChatDashboard, },
+  { path: 'calender-dashboard', component: CalenderDashboard,},
+  { path: 'book-doctor', component: BookAppointment, },
 
   // 2. doctor Dashboards routes{all} ===================//
-  {
-    path: 'doctor-dashboard',
-    component: DoctorDashboard,
-  },
-
+  {path: 'doctor-dashboard',component: DoctorDashboard,},
   { path: 'doctor-patient-records', component: DoctorPatientRecord },
   { path: 'doctor-appointments', component: DoctorAppointments },
   { path: 'doctor-schedule', component: DoctorSchedule },
@@ -182,4 +164,15 @@ export const routes: Routes = [
   { path: 'pharmacy-reports', component: PharmacyReports },
   { path: 'pharmacy-help', component: PharmacyHelp },
   { path: 'pharmacy-profile', component: PharmacyProfile },
+
+
+    // 4. pharmacy Dashboards routes{all} ===================//
+  { path: 'researcher-dashboard', component: ResearcherDashboard },
+  { path: 'research-project', component: ResearcherProject },
+  { path: 'data-access', component: ResearcherDataAccess },
+  { path: 'researcher-reports', component: ResearcherReports },
+  { path: 'publications', component: ResearcherPublications },
+  { path: 'collaborations', component: ResearcherCollaborations },
+  { path: 'researcher-help', component: ResearcherHelp },
+  { path: 'researcher-profile', component: ResearcherProfile },
 ];

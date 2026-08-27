@@ -1,0 +1,208 @@
+<main class="researcher-profile-page">
+  <div class="app no-rail">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search settings..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Profile Settings</h1>
+        <p>Manage your personal info, institutional details and preferences</p>
+      </div>
+
+      <div class="profile-layout">
+        <div class="tabs vertical-tabs">
+          @for (t of tabs; track t.id) {
+            <button [class.active]="activeTab() === t.id" (click)="setTab(t.id)">{{ t.label }}</button>
+          }
+        </div>
+
+        <div class="card settings-card">
+          <!-- Personal Info -->
+          @if (activeTab() === 'personal') {
+            <div class="settings-head">
+              <img src="https://i.pravatar.cc/80?img=28" alt="Dr. Amara Okafor" class="avatar-lg" />
+              <div>
+                <div class="settings-title">Personal information</div>
+                <div class="settings-sub">This is shown to patients on your profile</div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="p-name">Full name</label>
+                <input type="text" id="p-name" name="fullName" [(ngModel)]="personal.fullName" />
+              </div>
+              <div class="form-group">
+                <label for="p-specialty">Specialty</label>
+                <input type="text" id="p-specialty" name="specialty" [(ngModel)]="personal.specialty" />
+              </div>
+              <div class="form-group">
+                <label for="p-email">Email</label>
+                <input type="email" id="p-email" name="email" [(ngModel)]="personal.email" />
+              </div>
+              <div class="form-group">
+                <label for="p-phone">Phone</label>
+                <input type="tel" id="p-phone" name="phone" [(ngModel)]="personal.phone" />
+              </div>
+              <div class="form-group full">
+                <label for="p-bio">Bio</label>
+                <textarea id="p-bio" name="bio" [(ngModel)]="personal.bio" rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="settings-footer">
+              @if (savedTab() === 'personal') {
+                <span class="saved-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1fa971" stroke-width="2.5" width="14" height="14"><path d="M20 6L9 17l-5-5" /></svg>
+                  Saved
+                </span>
+              }
+              <button class="btn-primary" (click)="saveTab('personal')">Save changes</button>
+            </div>
+          }
+
+          <!-- Practice Details -->
+          @if (activeTab() === 'practice') {
+            <div class="settings-title" style="margin-bottom: 4px;">Institution details</div>
+            <div class="settings-sub" style="margin-bottom: 20px;">Your institutional affiliation and researcher identifiers</div>
+
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="pr-clinic">Institution</label>
+                <input type="text" id="pr-clinic" name="institution" [(ngModel)]="practice.institution" />
+              </div>
+              <div class="form-group full">
+                <label for="pr-address">Department</label>
+                <input type="text" id="pr-address" name="department" [(ngModel)]="practice.department" />
+              </div>
+              <div class="form-group">
+                <label for="pr-fee">ORCID iD</label>
+                <input type="text" id="pr-fee" name="orcidId" [(ngModel)]="practice.orcidId" />
+              </div>
+              <div class="form-group">
+                <label for="pr-hours">Office hours</label>
+                <input type="text" id="pr-hours" name="officeHours" [(ngModel)]="practice.officeHours" />
+              </div>
+            </div>
+
+            <div class="settings-footer">
+              @if (savedTab() === 'practice') {
+                <span class="saved-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1fa971" stroke-width="2.5" width="14" height="14"><path d="M20 6L9 17l-5-5" /></svg>
+                  Saved
+                </span>
+              }
+              <button class="btn-primary" (click)="saveTab('practice')">Save changes</button>
+            </div>
+          }
+
+          <!-- Security -->
+          @if (activeTab() === 'security') {
+            <div class="settings-title" style="margin-bottom: 4px;">Security</div>
+            <div class="settings-sub" style="margin-bottom: 20px;">Update your password to keep your account secure</div>
+
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="sec-current">Current password</label>
+                <input type="password" id="sec-current" name="currentPassword" [(ngModel)]="security.currentPassword" />
+              </div>
+              <div class="form-group">
+                <label for="sec-new">New password</label>
+                <input type="password" id="sec-new" name="newPassword" [(ngModel)]="security.newPassword" />
+              </div>
+              <div class="form-group">
+                <label for="sec-confirm">Confirm new password</label>
+                <input type="password" id="sec-confirm" name="confirmPassword" [(ngModel)]="security.confirmPassword" />
+              </div>
+            </div>
+
+            <div class="settings-footer">
+              @if (savedTab() === 'security') {
+                <span class="saved-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1fa971" stroke-width="2.5" width="14" height="14"><path d="M20 6L9 17l-5-5" /></svg>
+                  Password updated
+                </span>
+              }
+              <button class="btn-primary" (click)="saveTab('security')">Update password</button>
+            </div>
+          }
+
+          <!-- Notifications -->
+          @if (activeTab() === 'notifications') {
+            <div class="settings-title" style="margin-bottom: 4px;">Notification preferences</div>
+            <div class="settings-sub" style="margin-bottom: 20px;">Choose what you want to be notified about</div>
+
+            <div class="toggle-list">
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">New appointment requests</div>
+                  <div class="toggle-sub">Get notified when a patient books or requests a visit</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="notifications.newAppointments" name="newAppointments" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Patient messages</div>
+                  <div class="toggle-sub">Get notified for new chat messages</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="notifications.messages" name="messages" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Lab results ready</div>
+                  <div class="toggle-sub">Get notified when a patient's results come back</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="notifications.labResults" name="labResults" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-title">Product updates</div>
+                  <div class="toggle-sub">Occasional news about new Lovine features</div>
+                </div>
+                <label class="switch">
+                  <input type="checkbox" [(ngModel)]="notifications.marketing" name="marketing" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="settings-footer">
+              @if (savedTab() === 'notifications') {
+                <span class="saved-note">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1fa971" stroke-width="2.5" width="14" height="14"><path d="M20 6L9 17l-5-5" /></svg>
+                  Saved
+                </span>
+              }
+              <button class="btn-primary" (click)="saveTab('notifications')">Save preferences</button>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+  </div>
+</main>

@@ -1,0 +1,135 @@
+<main class="researcher-help-page">
+  <div class="app no-rail">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search help topics..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Help &amp; Support</h1>
+        <p>Answers to common questions, or reach out to our team directly</p>
+      </div>
+
+      <div class="help-grid">
+        <div class="card faq-card">
+          <h3 class="section-title">Frequently asked questions</h3>
+          <div class="faq-list">
+            @for (faq of faqs; track faq.id) {
+              <div class="faq-item" [class.open]="openFaqId() === faq.id">
+                <div class="faq-question" (click)="toggleFaq(faq.id)">
+                  <span>{{ faq.question }}</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="faq-chevron">
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                @if (openFaqId() === faq.id) {
+                  <div class="faq-answer">{{ faq.answer }}</div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+
+        <div class="card contact-card">
+          <h3 class="section-title">Contact support</h3>
+
+          @if (!submitted()) {
+            <form #supportFormRef="ngForm" (ngSubmit)="submitTicket(supportFormRef)">
+              <div class="form-grid one-col">
+                <div class="form-group">
+                  <label for="s-category">Category</label>
+                  <select id="s-category" name="category" [(ngModel)]="supportForm.category">
+                    @for (c of categories; track c) {
+                      <option [value]="c">{{ c }}</option>
+                    }
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="s-subject">Subject</label>
+                  <input
+                    type="text"
+                    id="s-subject"
+                    name="subject"
+                    [(ngModel)]="supportForm.subject"
+                    #subject="ngModel"
+                    placeholder="Briefly describe the issue"
+                    required
+                  />
+                  @if (subject.invalid && subject.touched) {
+                    <span class="error">Subject is required</span>
+                  }
+                </div>
+                <div class="form-group">
+                  <label for="s-message">Message</label>
+                  <textarea
+                    id="s-message"
+                    name="message"
+                    [(ngModel)]="supportForm.message"
+                    placeholder="Give us as much detail as you can..."
+                    rows="5"
+                  ></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary full-w">Submit ticket</button>
+            </form>
+          } @else {
+            <div class="success-block sm">
+              <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5" /></svg>
+              </div>
+              <div class="success-title">Ticket submitted</div>
+              <div class="success-sub">Our support team will follow up by email.</div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="page-head sub-head">
+        <h2>Your tickets</h2>
+      </div>
+      <div class="data-table">
+        <div class="d-row head" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+          <div class="dh">Subject</div>
+          <div class="dh">Category</div>
+          <div class="dh">Date</div>
+          <div class="dh">Status</div>
+        </div>
+        @for (t of tickets; track t.id) {
+          <div class="d-row" style="grid-template-columns: 2fr 1fr 1fr 1fr;">
+            <div class="cell-meta">{{ t.subject }}</div>
+            <div class="cell-meta">{{ t.category }}</div>
+            <div class="cell-meta">{{ t.date }}</div>
+            <div>
+              <span
+                class="status"
+                [class.confirmed]="t.status === 'Resolved'"
+                [class.pending]="t.status === 'In progress'"
+                [class.muted]="t.status === 'Open'"
+              >
+                {{ t.status }}
+              </span>
+            </div>
+          </div>
+        }
+        @if (tickets.length === 0) {
+          <div class="d-empty">No support tickets yet.</div>
+        }
+      </div>
+    </main>
+  </div>
+</main>

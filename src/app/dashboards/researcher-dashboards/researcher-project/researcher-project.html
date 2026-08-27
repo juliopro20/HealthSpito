@@ -1,0 +1,162 @@
+<main class="research-project-page">
+  <div class="app no-rail">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search projects..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="page-head">
+        <h1>Research Projects</h1>
+        <p>Track progress, milestones and funding across your studies</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row">
+          @for (f of filters; track f) {
+            <div class="chip" [class.active]="activeFilter() === f" (click)="setFilter(f)">{{ f }}</div>
+          }
+        </div>
+        <button class="new-btn" (click)="toggleForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 5v14M5 12h14" /></svg>
+          New project
+        </button>
+      </div>
+
+      @if (showForm()) {
+        <div class="card project-form-card">
+          <div class="rx-form-head">
+            <h3>Start a new project</h3>
+            <div class="form-close" (click)="toggleForm()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </div>
+          </div>
+
+          <form #projectFormRef="ngForm" (ngSubmit)="createProject(projectFormRef)">
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="p-title">Project title</label>
+                <input
+                  type="text"
+                  id="p-title"
+                  name="title"
+                  [(ngModel)]="formModel.title"
+                  #title="ngModel"
+                  placeholder="e.g. Long-term cardiovascular risk in urban populations"
+                  required
+                />
+                @if (title.invalid && title.touched) {
+                  <span class="error">Title is required</span>
+                }
+              </div>
+              <div class="form-group">
+                <label for="p-funding">Funding source</label>
+                <input type="text" id="p-funding" name="fundingSource" [(ngModel)]="formModel.fundingSource" placeholder="e.g. National Health Research Council" />
+              </div>
+              <div class="form-group">
+                <label for="p-deadline">Target deadline</label>
+                <input type="text" id="p-deadline" name="deadline" [(ngModel)]="formModel.deadline" placeholder="e.g. 30.09.2021" />
+              </div>
+              <div class="form-group full">
+                <label for="p-summary">Summary</label>
+                <textarea id="p-summary" name="summary" [(ngModel)]="formModel.summary" placeholder="Briefly describe the project's aims..." rows="4"></textarea>
+              </div>
+            </div>
+
+            <div class="form-footer">
+              <div class="form-note">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4M12 8h.01" /></svg>
+                You can add milestones and team members after creating the project
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn-secondary" (click)="toggleForm()">Cancel</button>
+                <button type="submit" class="btn-primary">Create project</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      }
+
+      <div class="project-grid">
+        @for (p of filteredProjects; track p.id) {
+          <div class="project-card" (click)="openProject(p)">
+            <div class="project-card-top">
+              <span
+                class="status"
+                [class.confirmed]="p.status === 'On track' || p.status === 'Completed'"
+                [class.pending]="p.status === 'At risk'"
+                [class.critical]="p.status === 'Delayed'"
+              >
+                {{ p.status }}
+              </span>
+              <div class="team-avatars">
+                @for (photo of p.teamPhotos.slice(0, 3); track photo) {
+                  <img [src]="photo" alt="Team member" />
+                }
+              </div>
+            </div>
+            <div class="project-card-title">{{ p.title }}</div>
+            <div class="project-card-summary">{{ p.summary }}</div>
+            <div class="project-progress">
+              <div class="bar-track"><div class="bar-fill" [style.width.%]="p.progress"></div></div>
+              <span>{{ p.progress }}%</span>
+            </div>
+            <div class="project-card-meta">Deadline {{ p.deadline }} &middot; {{ p.fundingSource }}</div>
+          </div>
+        }
+        @if (filteredProjects.length === 0) {
+          <div class="d-empty">No projects in this filter.</div>
+        }
+      </div>
+
+      @if (selectedProject(); as project) {
+        <div class="project-detail-card">
+          <div class="record-panel-head">
+            <div>
+              <div class="dp-name">{{ project.title }}</div>
+              <div class="dp-sub">{{ project.fundingSource }} &middot; started {{ project.startDate }}</div>
+            </div>
+            <div class="form-close" (click)="closeProject()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="M18 6L6 18M6 6l12 12" /></svg>
+            </div>
+          </div>
+
+          <p class="project-detail-summary">{{ project.summary }}</p>
+
+          <div class="page-head sub-head" style="margin-top: 12px;">
+            <h2 style="font-size: 15px;">Milestones</h2>
+          </div>
+          <div class="timeline">
+            @for (m of project.milestones; track m.title) {
+              <div class="timeline-item">
+                <div class="timeline-dot" [class.done]="m.done"></div>
+                <div class="timeline-content">
+                  <div class="tl-date">{{ m.date }}</div>
+                  <div class="tl-title">{{ m.title }}</div>
+                  <div class="tl-note">{{ m.done ? 'Completed' : 'In progress' }}</div>
+                </div>
+              </div>
+            }
+            @if (project.milestones.length === 0) {
+              <div class="d-empty">No milestones added yet.</div>
+            }
+          </div>
+        </div>
+      }
+    </main>
+  </div>
+</main>

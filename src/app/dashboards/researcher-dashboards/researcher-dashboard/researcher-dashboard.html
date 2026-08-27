@@ -1,0 +1,141 @@
+
+<main class="researcher-dashboard-page">
+  <div class="app">
+    <app-researcher-sidebar />
+
+    <main class="main">
+      <div class="topbar">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4-4" />
+          </svg>
+          <input type="text" placeholder="Search projects, datasets, publications..." />
+        </div>
+        <div class="icon-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.7 21a2 2 0 0 1-3.4 0" />
+          </svg>
+          <span class="dot"></span>
+        </div>
+      </div>
+
+      <div class="greeting">
+        <h1>Good morning, Dr. Okafor</h1>
+        <p>You have {{ projects.length }} active research projects</p>
+      </div>
+
+      <div class="stat-row">
+        @for (s of stats; track s.label) {
+          <div class="stat-card">
+            <div class="stat-icon">
+              @switch (s.icon) {
+                @case ('project') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4" />
+                    <path d="M9 15l10-10M14 3h7v7" />
+                  </svg>
+                }
+                @case ('data') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <ellipse cx="12" cy="5" rx="8" ry="3" />
+                    <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5" />
+                    <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+                  </svg>
+                }
+                @case ('publications') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                  </svg>
+                }
+                @case ('collaborations') {
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8" />
+                  </svg>
+                }
+              }
+            </div>
+            <div class="stat-value">{{ s.value }}</div>
+            <div class="stat-label">{{ s.label }}</div>
+            <div class="stat-delta">{{ s.delta }}</div>
+          </div>
+        }
+      </div>
+
+      <div class="page-head sub-head">
+        <h2>Active projects</h2>
+        <p>Progress and status across your current research work</p>
+      </div>
+
+      <div class="project-list">
+        @for (p of projects; track p.id) {
+          <div class="project-row-card">
+            <div class="project-info">
+              <div class="project-title">{{ p.title }}</div>
+              <div class="project-deadline">Deadline {{ p.deadline }}</div>
+            </div>
+            <div class="project-progress">
+              <div class="bar-track"><div class="bar-fill" [style.width.%]="p.progress"></div></div>
+              <span>{{ p.progress }}%</span>
+            </div>
+            <span
+              class="status"
+              [class.confirmed]="p.status === 'On track'"
+              [class.pending]="p.status === 'At risk'"
+              [class.critical]="p.status === 'Delayed'"
+            >
+              {{ p.status }}
+            </span>
+          </div>
+        }
+      </div>
+
+      <div class="page-head sub-head">
+        <h2>Funding utilization by project</h2>
+      </div>
+      <div class="card">
+        <div class="bar-chart">
+          @for (f of fundingByProject; track f.label) {
+            <div class="bar-chart-row">
+              <div class="bar-chart-label">{{ f.label }}</div>
+              <div class="bar-track"><div class="bar-fill" [style.width.%]="f.pct"></div></div>
+              <div class="bar-chart-value">{{ f.pct }}%</div>
+            </div>
+          }
+        </div>
+      </div>
+    </main>
+
+    <aside class="card remind-card" style="min-height: auto">
+      <div class="remind-head">
+        <h3>Recent activity</h3>
+      </div>
+      <div class="remind-list">
+        @for (a of activity; track a.time + a.actorName) {
+          <div class="remind-item">
+            <div class="remind-item-left">
+              <img [src]="a.actorPhoto" [alt]="a.actorName" />
+              <div class="r-text">
+                <div class="r-title">{{ a.actorName }}</div>
+                <div class="r-time">{{ a.action }} &middot; {{ a.time }}</div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="side-divider"></div>
+
+      <div class="mini-stat-block">
+        <div class="mini-stat-title">This quarter</div>
+        <div class="mini-stat-row"><span>Datasets requested</span><strong>7</strong></div>
+        <div class="mini-stat-row"><span>Papers submitted</span><strong>3</strong></div>
+        <div class="mini-stat-row"><span>New collaborators</span><strong>5</strong></div>
+      </div>
+    </aside>
+  </div>
+</main>

@@ -1,0 +1,67 @@
+@import '../dashboard-shared.css';
+
+.publications-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.pub-form-card {
+  margin-bottom: 22px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pub-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pub-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+.pub-title {
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+.pub-journal {
+  font-size: 12.5px;
+  color: #3f7ff0;
+  font-weight: 600;
+}
+.pub-authors {
+  font-size: 12px;
+  color: #5b6072;
+}
+.pub-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #8a90a6;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid #f2f4fa;
+}

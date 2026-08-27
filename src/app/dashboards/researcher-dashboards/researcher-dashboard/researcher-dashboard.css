@@ -1,0 +1,56 @@
+@import '../dashboard-shared.css';
+
+.researcher-dashboard-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.project-row-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.project-info {
+  flex: 1;
+  min-width: 220px;
+}
+.project-title {
+  font-weight: 700;
+  font-size: 14px;
+}
+.project-deadline {
+  font-size: 11.5px;
+  color: #8a90a6;
+  margin-top: 2px;
+}
+.project-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+  flex: 1;
+  max-width: 220px;
+}
+.project-progress .bar-track {
+  flex: 1;
+}
+.project-progress span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #5b6072;
+  width: 34px;
+  flex-shrink: 0;
+}

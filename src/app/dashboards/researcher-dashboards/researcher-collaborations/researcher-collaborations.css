@@ -1,0 +1,78 @@
+@import '../dashboard-shared.css';
+
+.collaborations-page {
+  font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  background: #eef1fb;
+  color: #1b1f2a;
+  min-height: 100vh;
+}
+
+.invite-form-card {
+  margin-bottom: 22px;
+}
+.rx-form-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.rx-form-head h3 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.collab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.collab-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(31, 45, 90, 0.06);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.collab-card img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 8px;
+}
+.collab-name {
+  font-weight: 700;
+  font-size: 14px;
+}
+.collab-role {
+  font-size: 12px;
+  color: #3f7ff0;
+  font-weight: 600;
+}
+.collab-institution {
+  font-size: 11.5px;
+  color: #8a90a6;
+  margin-bottom: 6px;
+}
+.collab-projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.project-tag {
+  font-size: 10px;
+  font-weight: 600;
+  background: #eaf1ff;
+  color: #2f5fd0;
+  padding: 4px 9px;
+  border-radius: 20px;
+}
+.full-w {
+  width: 100%;
+  justify-content: center;
+}
